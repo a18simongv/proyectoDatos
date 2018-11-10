@@ -1,4 +1,4 @@
-﻿Public Class FrmAuxiliar
+﻿Public Class FrmEdicionProd
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         Me.DialogResult = DialogResult.OK
     End Sub

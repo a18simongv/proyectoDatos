@@ -80,24 +80,31 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAuxiliar.Designer.vb">
-      <DependentUpon>FrmAuxiliar.vb</DependentUpon>
+    <Compile Include="FrmEdicionProd.Designer.vb">
+      <DependentUpon>FrmEdicionProd.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmAuxiliar.vb">
+    <Compile Include="FrmEdicionProd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmFiltros.designer.vb">
-      <DependentUpon>FrmFiltros.vb</DependentUpon>
+    <Compile Include="FrmFilterProd.designer.vb">
+      <DependentUpon>FrmFilterProd.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmFiltros.vb">
+    <Compile Include="FrmFilterProd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProductos.Designer.vb">
-      <DependentUpon>FrmProductos.vb</DependentUpon>
+    <Compile Include="FrmMain.Designer.vb">
+      <DependentUpon>FrmMain.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmProductos.vb">
+    <Compile Include="FrmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmMainProd.Designer.vb">
+      <DependentUpon>FrmMainProd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMainProd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IFilterForm.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -119,14 +126,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAuxiliar.resx">
-      <DependentUpon>FrmAuxiliar.vb</DependentUpon>
+    <EmbeddedResource Include="FrmEdicionProd.resx">
+      <DependentUpon>FrmEdicionProd.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmFiltros.resx">
-      <DependentUpon>FrmFiltros.vb</DependentUpon>
+    <EmbeddedResource Include="FrmFilterProd.resx">
+      <DependentUpon>FrmFilterProd.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductos.resx">
-      <DependentUpon>FrmProductos.vb</DependentUpon>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainProd.resx">
+      <DependentUpon>FrmMainProd.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

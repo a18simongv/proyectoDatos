@@ -22,7 +22,6 @@ Partial Class FrmMainProd
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMainProd))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -59,18 +58,15 @@ Partial Class FrmMainProd
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DtgProductos = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LblFiltrar = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.BtnModificar = New System.Windows.Forms.Button()
         Me.BtnNuevo = New System.Windows.Forms.Button()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         CType(Me.DtgProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -280,7 +276,7 @@ Partial Class FrmMainProd
         Me.GroupBox1.Controls.Add(Me.BtnAnterior)
         Me.GroupBox1.Controls.Add(Me.BtnPrimero)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.GroupBox1.Location = New System.Drawing.Point(63, 545)
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 549)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1111, 72)
         Me.GroupBox1.TabIndex = 20
@@ -401,7 +397,6 @@ Partial Class FrmMainProd
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(129, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.LblFiltrar)
         Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.BtnFiltrar)
@@ -412,18 +407,6 @@ Partial Class FrmMainProd
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(338, 162)
         Me.Panel1.TabIndex = 23
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(217, 108)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(33, 34)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 25
-        Me.PictureBox1.TabStop = False
-        Me.PictureBox1.Visible = False
         '
         'LblFiltrar
         '
@@ -487,11 +470,7 @@ Partial Class FrmMainProd
         Me.BtnNuevo.Text = "Nuevo Producto"
         Me.BtnNuevo.UseVisualStyleBackColor = True
         '
-        'Timer1
-        '
-        Me.Timer1.Interval = 300
-        '
-        'FrmProductos
+        'FrmMainProd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -524,14 +503,13 @@ Partial Class FrmMainProd
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Margin = New System.Windows.Forms.Padding(6)
-        Me.Name = "FrmProductos"
+        Me.Name = "FrmMainProd"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Mantenimiento de productos"
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DtgProductos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -575,6 +553,4 @@ Partial Class FrmMainProd
     Friend WithEvents BtnEliminar As Button
     Friend WithEvents BtnModificar As Button
     Friend WithEvents BtnNuevo As Button
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Timer1 As Timer
 End Class

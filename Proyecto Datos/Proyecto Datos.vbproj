@@ -121,6 +121,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Procedimientos y datos globales.vb" />
+    <Compile Include="Proveedores\frnMainProv.Designer.vb">
+      <DependentUpon>frnMainProv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\frnMainProv.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -143,6 +149,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\frnMainProv.resx">
+      <DependentUpon>frnMainProv.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

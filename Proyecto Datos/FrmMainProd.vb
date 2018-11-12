@@ -9,7 +9,7 @@ Public Class FrmMainProd
 
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\Pablo\source\repos\a18pablodv\AccesoDatosInterfaces\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
 
         DtsMProductos = New DataSet 'Instanciamos el datasetManager que contendra la gestion de las tablas necesarias
 
@@ -159,6 +159,9 @@ Public Class FrmMainProd
             .TxtPVP.Text = TxtPVP.Text
             .TxtPCM.Text = TxtPCM.Text
             .ChkPendiente.Checked = ChkPendiente.Checked
+
+            MostrarVlrCombo(DtsMProductos.Tables("Iva"), "TipoIva", .CmbTiposIva, TxtTipoIva.Text)
+            MostrarVlrCombo(DtsMProductos.Tables("Prove"), "Codigo", .CmbProveedores, TxtCodProv.Text)
         End With
 
     End Sub
@@ -220,8 +223,6 @@ Public Class FrmMainProd
         If BtnFiltrar.Text = "Ver Todos" Then
             DtsMProductos.Tables("Prod").DefaultView.RowFilter = "" 'Sin filtros. Recoge todas las filas.
             BtnFiltrar.Text = "..."
-            PictureBox1.Visible = False
-            Timer1.Stop()
             Exit Sub
         End If
 
@@ -234,13 +235,7 @@ Public Class FrmMainProd
         Me.Cursor = Cursors.WaitCursor 'Cambiamos el estilo del cursor a la ruedita.
         DtsMProductos.Tables("Prod").DefaultView.RowFilter = queryFiltro 'Defaultview.Find vs DefaultView.RowFilter
         Me.Cursor = Cursors.Default 'Cambiamos de la ruedita al cursor normal
-        PictureBox1.Visible = True 'Mostramos la imagen
-        Timer1.Start() 'Iniciamos el contador. El periodo de llamada al método tick se define en la vista de diseño
         BtnFiltrar.Text = "Ver Todos" 'Cambiamos el texto del botón
-    End Sub
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        PictureBox1.Visible = Not PictureBox1.Visible
     End Sub
 
 End Class

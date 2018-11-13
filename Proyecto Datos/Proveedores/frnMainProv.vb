@@ -7,7 +7,7 @@ Public Class frnMainProv
     Private Sub frnMainProv_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
 
         dtsManProv = New DataSet 'dts utilizar para proveedores
 
@@ -31,7 +31,8 @@ Public Class frnMainProv
     End Sub
 
     Private Sub enlazarDatos()
-        TxtCodProv.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "CodProv")
+        'enlazamos textbox
+        TxtCodProv.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "Codigo")
         TxtNIF.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "NIF")
         TxtNombre.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "Nombre")
         TxtDirec.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "Dirección")
@@ -42,5 +43,31 @@ Public Class frnMainProv
         TxtFax.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "Fax")
         TxtEmail.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "email")
         TxtFecAlta.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "FecAlta")
+        TxtCodBan.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "CodBan")
+        TxtCodSuc.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "CodSuc")
+        TxtCodFPago.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "CodFPago")
+        'enlazamos datagridview
+        DtgProveedores.DataSource = dtsManProv.Tables("Prov")
+        ConfigurationGrid()
+    End Sub
+    Private Sub ConfigurationGrid()
+        'Cambiamos el texto del titulo de la columna por un string.
+        With DtgProveedores
+            .Columns("Codigo").HeaderText = "Id"
+            .Columns("NIF").HeaderText = "Nif"
+            .Columns("Nombre").HeaderText = "Nombre"
+            .Columns("Dirección").HeaderText = "Dirección"
+            .Columns("CodPos").HeaderText = "Cod.Postal"
+            .Columns("Poblac").HeaderText = "Población"
+            .Columns("Provin").HeaderText = "Provincia"
+            .Columns("Tfno").HeaderText = "Telefono"
+            .Columns("Fax").HeaderText = "Fax"
+            .Columns("email").HeaderText = "Email"
+            .Columns("FecAlta").HeaderText = "Fecha alta"
+            .Columns("CodBan").HeaderText = "Cod.Banco"
+            .Columns("CodSuc").HeaderText = "Cod.Sucursal"
+            .Columns("CodFPago").HeaderText = "Forma pago"
+
+        End With
     End Sub
 End Class

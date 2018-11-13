@@ -22,53 +22,67 @@ Partial Class FrmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnProd = New System.Windows.Forms.Button()
+        Me.BtnProveedores = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.BtnProveedores)
+        Me.Panel1.Controls.Add(Me.BtnProd)
+        Me.Panel1.Location = New System.Drawing.Point(23, 18)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(216, 188)
+        Me.Panel1.TabIndex = 0
+        Me.Panel1.Tag = "Mantenimiento"
+        '
+        'BtnProd
+        '
+        Me.BtnProd.Location = New System.Drawing.Point(59, 52)
+        Me.BtnProd.Name = "BtnProd"
+        Me.BtnProd.Size = New System.Drawing.Size(96, 27)
+        Me.BtnProd.TabIndex = 0
+        Me.BtnProd.Text = "Productos"
+        Me.BtnProd.UseVisualStyleBackColor = True
+        '
+        'BtnProveedores
+        '
+        Me.BtnProveedores.Location = New System.Drawing.Point(59, 96)
+        Me.BtnProveedores.Name = "BtnProveedores"
+        Me.BtnProveedores.Size = New System.Drawing.Size(96, 27)
+        Me.BtnProveedores.TabIndex = 1
+        Me.BtnProveedores.Text = "Proveedores"
+        Me.BtnProveedores.UseVisualStyleBackColor = True
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 13)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(39, 12)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(238, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Selecciona una tabla sobre la que quieras operar"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(257, 10)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 1
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(153, 58)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Seleccionar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label1.Size = New System.Drawing.Size(131, 23)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Mantenimiento"
         '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(399, 110)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label1)
+        Me.ClientSize = New System.Drawing.Size(744, 493)
+        Me.Controls.Add(Me.Panel1)
         Me.Name = "FrmMain"
         Me.Text = "FrmMain"
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents BtnProveedores As Button
+    Friend WithEvents BtnProd As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Button1 As Button
 End Class

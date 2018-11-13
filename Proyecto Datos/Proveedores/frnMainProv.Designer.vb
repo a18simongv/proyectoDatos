@@ -23,10 +23,6 @@ Partial Class frnMainProv
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frnMainProv))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -66,16 +62,16 @@ Partial Class frnMainProv
         Me.Label16 = New System.Windows.Forms.Label()
         Me.BtnBuscar = New System.Windows.Forms.Button()
         Me.TxtCodBuscar = New System.Windows.Forms.TextBox()
-        Me.DtgProveedores = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnUltimo = New System.Windows.Forms.Button()
         Me.BtnSiguiente = New System.Windows.Forms.Button()
         Me.BtnAnterior = New System.Windows.Forms.Button()
         Me.BtnPrimero = New System.Windows.Forms.Button()
+        Me.DtgProveedores = New System.Windows.Forms.DataGridView()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -453,47 +449,6 @@ Partial Class frnMainProv
         Me.TxtCodBuscar.Size = New System.Drawing.Size(100, 22)
         Me.TxtCodBuscar.TabIndex = 1
         '
-        'DtgProveedores
-        '
-        Me.DtgProveedores.AllowUserToAddRows = False
-        Me.DtgProveedores.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.DtgProveedores.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DtgProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DtgProveedores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DtgProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DtgProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DtgProveedores.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DtgProveedores.Location = New System.Drawing.Point(12, 620)
-        Me.DtgProveedores.Name = "DtgProveedores"
-        Me.DtgProveedores.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        Me.DtgProveedores.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.DtgProveedores.RowHeadersWidth = 20
-        Me.DtgProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DtgProveedores.Size = New System.Drawing.Size(1135, 196)
-        Me.DtgProveedores.TabIndex = 36
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.BtnUltimo)
@@ -543,11 +498,23 @@ Partial Class frnMainProv
         Me.BtnPrimero.Text = "<<"
         Me.BtnPrimero.UseVisualStyleBackColor = True
         '
+        'DtgProveedores
+        '
+        Me.DtgProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DtgProveedores.GridColor = System.Drawing.Color.Gainsboro
+        Me.DtgProveedores.Location = New System.Drawing.Point(12, 619)
+        Me.DtgProveedores.Name = "DtgProveedores"
+        Me.DtgProveedores.ReadOnly = True
+        Me.DtgProveedores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        Me.DtgProveedores.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight
+        Me.DtgProveedores.Size = New System.Drawing.Size(1111, 132)
+        Me.DtgProveedores.TabIndex = 36
+        '
         'frnMainProv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1155, 854)
+        Me.ClientSize = New System.Drawing.Size(1155, 768)
         Me.Controls.Add(Me.DtgProveedores)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel2)
@@ -587,8 +554,8 @@ Partial Class frnMainProv
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -633,10 +600,10 @@ Partial Class frnMainProv
     Friend WithEvents Label16 As Label
     Friend WithEvents BtnBuscar As Button
     Friend WithEvents TxtCodBuscar As TextBox
-    Friend WithEvents DtgProveedores As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents BtnUltimo As Button
     Friend WithEvents BtnSiguiente As Button
     Friend WithEvents BtnAnterior As Button
     Friend WithEvents BtnPrimero As Button
+    Friend WithEvents DtgProveedores As DataGridView
 End Class

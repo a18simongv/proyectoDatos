@@ -7,15 +7,18 @@ Public Class FrmMainProd
 
     Private Sub FrmProductos_Load(sender As Object, e As EventArgs) Handles Me.Load 'Captura el evento de carga del formulario
 
+        'CnnGestion = New OleDbConnection _
+        '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         DtsMProductos = New DataSet 'Instanciamos el datasetManager que contendra la gestion de las tablas necesarias
 
         DtaProductos = New OleDbDataAdapter("Select * from Productos order by CodProd", CnnGestion) 'DataAdapter de productos
         DtaProductos.Fill(DtsMProductos, "Prod") 'Metemos en el dataset el dataAdapter con la referencia Prod
-        'Dim cmbProductos As New OleDbCommandBuilder(DtaProductos) '???
+        Dim cmbProductos As New OleDbCommandBuilder(DtaProductos) '???
 
         DtaTiposIva = New OleDbDataAdapter("Select * from TiposIva order by Porcentaje", CnnGestion) 'DataAdapter de TiposIva
         DtaTiposIva.Fill(DtsMProductos, "Iva") 'Metemos en el dataset el dataAdapter con la referencia Iva
@@ -199,7 +202,6 @@ Public Class FrmMainProd
         End If
         TxtCodBuscar.Text = ""
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position = posicion 'Colocamos el dataset del contexto en la posicion del dataset
-        'IDEA LOCA - el binding context son todos los bindings de los componentes de ese formulario?
     End Sub
 
     Private Function ObtenerUltimoCodigo() As Short

@@ -32,7 +32,7 @@ Public Class FrmEdicionProv
         With Me
             .CmbSuc.DisplayMember = "nombresuc"
             .CmbSuc.ValueMember = "codsuc"
-            .CmbSuc.DataSource = dtsDependencias.Tables("sucursal").Select("CodBanco = " & .CmbBan.SelectedValue.ToString)
+            .CmbSuc.DataSource = dtsDependencias.Tables("sucursal").Select("CodBanco = " & .CmbBan.SelectedIndex)
         End With
     End Sub
 End Class

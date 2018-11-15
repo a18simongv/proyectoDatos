@@ -70,4 +70,8 @@ Public Class frnMainProv
 
         End With
     End Sub
+
+    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click
+
+    End Sub
 End Class

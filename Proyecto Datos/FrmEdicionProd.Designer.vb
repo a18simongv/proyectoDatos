@@ -47,6 +47,7 @@ Partial Class FrmEdicionProd
         Me.ChkPendiente = New System.Windows.Forms.CheckBox()
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.BtnCancelar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label10
@@ -286,13 +287,23 @@ Partial Class FrmEdicionProd
         Me.BtnCancelar.Text = "&Cancelar"
         Me.BtnCancelar.UseVisualStyleBackColor = True
         '
-        'FrmAuxiliar
+        'Label1
+        '
+        Me.Label1.Location = New System.Drawing.Point(419, 329)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(32, 32)
+        Me.Label1.TabIndex = 35
+        Me.Label1.Text = "%"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FrmEdicionProd
         '
         Me.AcceptButton = Me.BtnAceptar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.BtnCancelar
         Me.ClientSize = New System.Drawing.Size(870, 543)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.ChkPendiente)
@@ -320,7 +331,7 @@ Partial Class FrmEdicionProd
         Me.Controls.Add(Me.LblTCodigo)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(6)
-        Me.Name = "FrmAuxiliar"
+        Me.Name = "FrmEdicionProd"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmAuxiliar"
         Me.ResumeLayout(False)
@@ -353,4 +364,5 @@ Partial Class FrmEdicionProd
     Friend WithEvents ChkPendiente As CheckBox
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents BtnCancelar As Button
+    Friend WithEvents Label1 As Label
 End Class

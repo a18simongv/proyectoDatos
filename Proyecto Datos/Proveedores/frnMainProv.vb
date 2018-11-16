@@ -117,13 +117,13 @@ Public Class frnMainProv
 
     Private Sub enlazarCombos(frmAux As FrmEdicionProv)
         With frmAux
-            .CmbBan.DataSource = dtsManProv.Tables("banco")
-            .CmbBan.DisplayMember = "Nombre"
-            .CmbBan.ValueMember = "CodBanco"
+            '.CmbBan.DataSource = dtsManProv.Tables("banco")
+            '.CmbBan.DisplayMember = "Nombre"
+            '.CmbBan.ValueMember = "CodBanco"
 
-            .CmbSuc.DataSource = dtsManProv.Tables("sucursal")
-            .CmbSuc.DisplayMember = "nombresuc"
-            .CmbSuc.ValueMember = "codsuc"
+            '.CmbSuc.DataSource = dtsManProv.Tables("sucursal")
+            '.CmbSuc.DisplayMember = "nombresuc"
+            '.CmbSuc.ValueMember = "codsuc"
 
             .cmbPobl.DataSource = dtsManProv.Tables("mun")
             .cmbPobl.DisplayMember = "nombre"

@@ -62,7 +62,6 @@ Partial Class FrmEdicionProv
         Me.TxtFax.Name = "TxtFax"
         Me.TxtFax.Size = New System.Drawing.Size(188, 23)
         Me.TxtFax.TabIndex = 56
-        Me.TxtFax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtTelef
         '
@@ -82,7 +81,6 @@ Partial Class FrmEdicionProv
         Me.TxtEmail.Name = "TxtEmail"
         Me.TxtEmail.Size = New System.Drawing.Size(188, 23)
         Me.TxtEmail.TabIndex = 54
-        Me.TxtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtCodPos
         '
@@ -102,7 +100,6 @@ Partial Class FrmEdicionProv
         Me.TxtDirec.Name = "TxtDirec"
         Me.TxtDirec.Size = New System.Drawing.Size(188, 23)
         Me.TxtDirec.TabIndex = 50
-        Me.TxtDirec.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtNombre
         '
@@ -112,7 +109,6 @@ Partial Class FrmEdicionProv
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(188, 23)
         Me.TxtNombre.TabIndex = 49
-        Me.TxtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtNIF
         '

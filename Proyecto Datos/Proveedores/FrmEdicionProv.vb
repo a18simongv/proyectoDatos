@@ -12,11 +12,18 @@ Public Class FrmEdicionProv
 
         dtsDependencias = New DataSet
 
-        'DtaBan = New OleDbDataAdapter("Select * from Bancos", CnnGestion)
-        'DtaBan.Fill(dtsDependencias, "banco")
+        DtaBan = New OleDbDataAdapter("Select * from Bancos", CnnGestion)
+        DtaBan.Fill(dtsDependencias, "banco")
 
         DtaSuc = New OleDbDataAdapter("Select * from Sucursales", CnnGestion)
         DtaSuc.Fill(dtsDependencias, "sucursal")
+
+        'DtaSuc = New OleDbDataAdapter("Select * from Sucursales", CnnGestion)
+        'DtaSuc.Fill(dtsDependencias, "sucursal")
+
+        CmbBan.DataSource = dtsDependencias.Tables("banco")
+        CmbBan.DisplayMember = "Nombre"
+        CmbBan.ValueMember = "CodBanco"
     End Sub
 
     'Private Sub CmbBan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbBan.SelectedIndexChanged
@@ -29,10 +36,16 @@ Public Class FrmEdicionProv
     'End Sub
 
     Private Sub CmbBan_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbBan.SelectionChangeCommitted
-        With Me
-            .CmbSuc.DisplayMember = "nombresuc"
-            .CmbSuc.ValueMember = "codsuc"
-            .CmbSuc.DataSource = dtsDependencias.Tables("sucursal").Select("CodBanco = " & .CmbBan.SelectedIndex)
-        End With
+
+        'CmbSuc.DataSource = dtsDependencias.Tables("sucursal").Select("CodBanco = " & CmbBan.SelectedValue)
+        'CmbSuc.DisplayMember = "NombreSuc"
+        'CmbSuc.ValueMember = "CodSuc"
+        CmbSuc.DataSource = dtsDependencias.Tables("sucursal").DefaultView.RowFilter("CodBanco = " & CStr(CmbBan.SelectedValue))
+        'DtaSuc.Fill(dtsDependencias, "sucursal")
+
+        CmbSuc.DisplayMember = "NombreSuc"
+        CmbSuc.ValueMember = "CodSuc"
+
+
     End Sub
 End Class

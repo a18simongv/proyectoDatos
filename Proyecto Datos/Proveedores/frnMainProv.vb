@@ -5,12 +5,12 @@ Public Class frnMainProv
     Dim dtaProve, dtaMun, dtaProvn, dtaBan, dtaSucur, dtaFmsPg As OleDbDataAdapter
 
     Private Sub frnMainProv_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'CnnGestion = New OleDbConnection _
-        '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        'CnnGestion = New OleDbConnection _
+        '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         dtsManProv = New DataSet 'dts utilizar para proveedores
 
@@ -109,21 +109,15 @@ Public Class frnMainProv
         Me.BindingContext(dtsManProv.Tables("prov")).Position = posicion 'Colocamos el dataset del contexto en la posicion del dataset
     End Sub
 
-    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
-        Dim frmNuevo As New FrmEdicionProv
-        enlazarCombos(frmNuevo)
-        frmNuevo.ShowDialog()
-    End Sub
-
     Private Sub enlazarCombos(frmAux As FrmEdicionProv)
         With frmAux
-            '.CmbBan.DataSource = dtsManProv.Tables("banco")
-            '.CmbBan.DisplayMember = "Nombre"
-            '.CmbBan.ValueMember = "CodBanco"
+            .CmbBan.DataSource = dtsManProv.Tables("banco")
+            .CmbBan.DisplayMember = "Nombre"
+            .CmbBan.ValueMember = "CodBanco"
 
-            '.CmbSuc.DataSource = dtsManProv.Tables("sucursal")
-            '.CmbSuc.DisplayMember = "nombresuc"
-            '.CmbSuc.ValueMember = "codsuc"
+            .CmbSuc.DataSource = dtsManProv.Tables("sucursal")
+            .CmbSuc.DisplayMember = "nombresuc"
+            .CmbSuc.ValueMember = "codsuc"
 
             .cmbPobl.DataSource = dtsManProv.Tables("mun")
             .cmbPobl.DisplayMember = "nombre"
@@ -136,6 +130,42 @@ Public Class frnMainProv
             .CmbFPago.DataSource = dtsManProv.Tables("fmspago")
             .CmbFPago.DisplayMember = "descrip"
             .CmbFPago.ValueMember = "codfpago"
+        End With
+    End Sub
+
+    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+        Dim frmNuevo As New FrmEdicionProv
+
+        frmNuevo.Text = "Nuevo proveedor"
+
+        frmNuevo.LblCodProv.Visible = False
+        frmNuevo.TxtCodProv.Visible = False
+
+        enlazarCombos(frmNuevo)
+        If frmNuevo.ShowDialog() = DialogResult.Cancel Then
+            Exit Sub
+        End If
+
+        'insertamos el nuevo prov
+        Dim fprov As DataRow
+
+    End Sub
+
+    Public Sub cargarDatos(formOr As FrmEdicionProv, fila As DataRow)
+        With formOr
+            fila("NIF") = .TxtNIF.Text
+            fila("Nombre") = .TxtNombre.Text
+            fila("Dirección") = .TxtDirec.Text
+            fila("CodPos") = .TxtCodPos.Text
+            fila("Poblac") = .cmbPobl.SelectedValue
+            fila("Provin") = CShort(.cmbProv.SelectedValue)
+            fila("Tfno") = .TxtTelef.Text
+            fila("Fax") = .TxtFax.Text
+            fila("email") = .TxtEmail.Text
+            fila("FecAlta") = .dtpAlta.Value
+            fila("CodBan") = CShort(.CmbBan.SelectedValue)
+            fila("CodSuc") = CShort(.CmbSuc.SelectedValue)
+            fila("CodFPago") = CShort(.CmbFPago.SelectedValue)
         End With
     End Sub
 End Class

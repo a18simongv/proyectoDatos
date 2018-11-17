@@ -41,7 +41,7 @@ Partial Class FrmEdicionProv
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LblCodProv = New System.Windows.Forms.Label()
         Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.cmbProv = New System.Windows.Forms.ComboBox()
@@ -49,7 +49,7 @@ Partial Class FrmEdicionProv
         Me.CmbSuc = New System.Windows.Forms.ComboBox()
         Me.CmbFPago = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpAlta = New System.Windows.Forms.DateTimePicker()
         Me.cmbPobl = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
@@ -238,15 +238,15 @@ Partial Class FrmEdicionProv
         Me.Label2.TabIndex = 34
         Me.Label2.Text = "NIF:"
         '
-        'Label1
+        'LblCodProv
         '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(57, 30)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(150, 26)
-        Me.Label1.TabIndex = 33
-        Me.Label1.Text = "Código Proveedor:"
+        Me.LblCodProv.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCodProv.Location = New System.Drawing.Point(57, 30)
+        Me.LblCodProv.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.LblCodProv.Name = "LblCodProv"
+        Me.LblCodProv.Size = New System.Drawing.Size(150, 26)
+        Me.LblCodProv.TabIndex = 33
+        Me.LblCodProv.Text = "Código Proveedor:"
         '
         'BtnAceptar
         '
@@ -308,12 +308,12 @@ Partial Class FrmEdicionProv
         Me.Label11.TabIndex = 43
         Me.Label11.Text = "Fecha alta:"
         '
-        'DateTimePicker1
+        'dtpAlta
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(215, 432)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(240, 23)
-        Me.DateTimePicker1.TabIndex = 68
+        Me.dtpAlta.Location = New System.Drawing.Point(215, 432)
+        Me.dtpAlta.Name = "dtpAlta"
+        Me.dtpAlta.Size = New System.Drawing.Size(240, 23)
+        Me.dtpAlta.TabIndex = 68
         '
         'cmbPobl
         '
@@ -340,7 +340,7 @@ Partial Class FrmEdicionProv
         Me.ClientSize = New System.Drawing.Size(709, 600)
         Me.Controls.Add(Me.cmbPobl)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.dtpAlta)
         Me.Controls.Add(Me.CmbFPago)
         Me.Controls.Add(Me.CmbSuc)
         Me.Controls.Add(Me.CmbBan)
@@ -367,7 +367,7 @@ Partial Class FrmEdicionProv
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.LblCodProv)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmEdicionProv"
@@ -395,7 +395,7 @@ Partial Class FrmEdicionProv
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LblCodProv As Label
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents cmbProv As ComboBox
@@ -403,7 +403,7 @@ Partial Class FrmEdicionProv
     Friend WithEvents CmbSuc As ComboBox
     Friend WithEvents CmbFPago As ComboBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtpAlta As DateTimePicker
     Friend WithEvents cmbPobl As ComboBox
     Friend WithEvents Label6 As Label
 End Class

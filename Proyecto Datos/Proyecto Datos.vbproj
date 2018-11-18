@@ -150,6 +150,18 @@
     <Compile Include="Proveedores\frnMainProv.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TiposIva\FrmEdicionTIva.Designer.vb">
+      <DependentUpon>FrmEdicionTIva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TiposIva\FrmEdicionTIva.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiposIva\FrmMainTIva.Designer.vb">
+      <DependentUpon>FrmMainTIva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TiposIva\FrmMainTIva.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Clientes\FrmEdicionClt.resx">
@@ -187,6 +199,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores\frnMainProv.resx">
       <DependentUpon>frnMainProv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TiposIva\FrmEdicionTIva.resx">
+      <DependentUpon>FrmEdicionTIva.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TiposIva\FrmMainTIva.resx">
+      <DependentUpon>FrmMainTIva.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

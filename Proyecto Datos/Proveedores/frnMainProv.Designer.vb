@@ -45,7 +45,6 @@ Partial Class frnMainProv
         Me.TxtNombre = New System.Windows.Forms.TextBox()
         Me.TxtNIF = New System.Windows.Forms.TextBox()
         Me.TxtCodProv = New System.Windows.Forms.TextBox()
-        Me.TxtFecAlta = New System.Windows.Forms.TextBox()
         Me.TxtFax = New System.Windows.Forms.TextBox()
         Me.TxtTelef = New System.Windows.Forms.TextBox()
         Me.TxtCodFPago = New System.Windows.Forms.TextBox()
@@ -68,6 +67,7 @@ Partial Class frnMainProv
         Me.BtnAnterior = New System.Windows.Forms.Button()
         Me.BtnPrimero = New System.Windows.Forms.Button()
         Me.DtgProveedores = New System.Windows.Forms.DataGridView()
+        Me.dtpAlta = New System.Windows.Forms.DateTimePicker()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -222,7 +222,6 @@ Partial Class frnMainProv
         Me.TxtEmail.ReadOnly = True
         Me.TxtEmail.Size = New System.Drawing.Size(142, 22)
         Me.TxtEmail.TabIndex = 26
-        Me.TxtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtProv
         '
@@ -262,7 +261,6 @@ Partial Class frnMainProv
         Me.TxtDirec.ReadOnly = True
         Me.TxtDirec.Size = New System.Drawing.Size(142, 22)
         Me.TxtDirec.TabIndex = 22
-        Me.TxtDirec.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtNombre
         '
@@ -272,7 +270,6 @@ Partial Class frnMainProv
         Me.TxtNombre.ReadOnly = True
         Me.TxtNombre.Size = New System.Drawing.Size(142, 22)
         Me.TxtNombre.TabIndex = 21
-        Me.TxtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtNIF
         '
@@ -291,16 +288,6 @@ Partial Class frnMainProv
         Me.TxtCodProv.ReadOnly = True
         Me.TxtCodProv.Size = New System.Drawing.Size(142, 22)
         Me.TxtCodProv.TabIndex = 19
-        '
-        'TxtFecAlta
-        '
-        Me.TxtFecAlta.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtFecAlta.Location = New System.Drawing.Point(270, 382)
-        Me.TxtFecAlta.Name = "TxtFecAlta"
-        Me.TxtFecAlta.ReadOnly = True
-        Me.TxtFecAlta.Size = New System.Drawing.Size(142, 22)
-        Me.TxtFecAlta.TabIndex = 29
-        Me.TxtFecAlta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtFax
         '
@@ -330,7 +317,6 @@ Partial Class frnMainProv
         Me.TxtCodFPago.ReadOnly = True
         Me.TxtCodFPago.Size = New System.Drawing.Size(142, 22)
         Me.TxtCodFPago.TabIndex = 32
-        Me.TxtCodFPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtCodBan
         '
@@ -524,11 +510,20 @@ Partial Class frnMainProv
         Me.DtgProveedores.Size = New System.Drawing.Size(1111, 132)
         Me.DtgProveedores.TabIndex = 36
         '
+        'dtpAlta
+        '
+        Me.dtpAlta.Enabled = False
+        Me.dtpAlta.Location = New System.Drawing.Point(270, 382)
+        Me.dtpAlta.Name = "dtpAlta"
+        Me.dtpAlta.Size = New System.Drawing.Size(244, 22)
+        Me.dtpAlta.TabIndex = 37
+        '
         'frnMainProv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1155, 768)
+        Me.Controls.Add(Me.dtpAlta)
         Me.Controls.Add(Me.DtgProveedores)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel2)
@@ -536,7 +531,6 @@ Partial Class frnMainProv
         Me.Controls.Add(Me.TxtCodFPago)
         Me.Controls.Add(Me.TxtCodBan)
         Me.Controls.Add(Me.TxtCodSuc)
-        Me.Controls.Add(Me.TxtFecAlta)
         Me.Controls.Add(Me.TxtFax)
         Me.Controls.Add(Me.TxtTelef)
         Me.Controls.Add(Me.TxtEmail)
@@ -597,7 +591,6 @@ Partial Class frnMainProv
     Friend WithEvents TxtNombre As TextBox
     Friend WithEvents TxtNIF As TextBox
     Friend WithEvents TxtCodProv As TextBox
-    Friend WithEvents TxtFecAlta As TextBox
     Friend WithEvents TxtFax As TextBox
     Friend WithEvents TxtTelef As TextBox
     Friend WithEvents TxtCodFPago As TextBox
@@ -620,4 +613,5 @@ Partial Class frnMainProv
     Friend WithEvents BtnAnterior As Button
     Friend WithEvents BtnPrimero As Button
     Friend WithEvents DtgProveedores As DataGridView
+    Friend WithEvents dtpAlta As DateTimePicker
 End Class

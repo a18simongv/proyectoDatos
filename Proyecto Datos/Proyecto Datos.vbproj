@@ -120,6 +120,12 @@
     <Compile Include="Proveedores\FrmEdicionProv.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Proveedores\FrmFilterProv.Designer.vb">
+      <DependentUpon>FrmFilterProv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\FrmFilterProv.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Proveedores\frnMainProv.Designer.vb">
       <DependentUpon>frnMainProv.vb</DependentUpon>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores\FrmEdicionProv.resx">
       <DependentUpon>FrmEdicionProv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\FrmFilterProv.resx">
+      <DependentUpon>FrmFilterProv.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedores\frnMainProv.resx">
       <DependentUpon>frnMainProv.vb</DependentUpon>

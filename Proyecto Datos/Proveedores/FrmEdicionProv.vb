@@ -1,51 +1,29 @@
 ﻿Imports System.Data.OleDb
 Public Class FrmEdicionProv
-    'Dim dtsDependencias As DataSet
-    'Dim DtaSuc, DtaBan, DtaPobl As OleDbDataAdapter
-    'Private Sub FrmEdicionProv_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    '    'CnnGestion = New OleDbConnection _
-    '    '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-    '    '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
-    '    CnnGestion = New OleDbConnection _
-    '    ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-    '    "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
-    '    dtsDependencias = New DataSet
+    Dim dtstablas As DataSet
 
-    '    DtaBan = New OleDbDataAdapter("Select * from Bancos", CnnGestion)
-    '    DtaBan.Fill(dtsDependencias, "banco")
+    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+        Me.DialogResult = DialogResult.OK
+    End Sub
 
-    '    DtaSuc = New OleDbDataAdapter("Select * from Sucursales", CnnGestion)
-    '    DtaSuc.Fill(dtsDependencias, "sucursal")
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        Me.DialogResult = DialogResult.Cancel
+    End Sub
 
-    '    'DtaSuc = New OleDbDataAdapter("Select * from Sucursales", CnnGestion)
-    '    'DtaSuc.Fill(dtsDependencias, "sucursal")
+    Private Sub cmbProv_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbProv.SelectionChangeCommitted
+        Dim filter As String = "CodProv =" & cmbProv.SelectedValue
+        dependenciaComb(dtstablas, "mun", cmbPobl, filter)
+    End Sub
 
-    '    CmbBan.DataSource = dtsDependencias.Tables("banco")
-    '    CmbBan.DisplayMember = "Nombre"
-    '    CmbBan.ValueMember = "CodBanco"
-    'End Sub
+    Private Sub CmbBan_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbBan.SelectionChangeCommitted
 
-    ''Private Sub CmbBan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbBan.SelectedIndexChanged
-    ''    With Me
-    ''        .CmbSuc.DisplayMember = "nombresuc"
-    ''        .CmbSuc.ValueMember = "codsuc"
-    ''        .CmbSuc.DataSource = dtsDependencias.Tables("sucursal").Select("CodBanco = " & .CmbBan.SelectedItem)
-    ''    End With
+        Dim filter As String = "CodBanco =" & CmbBan.SelectedValue
+        dependenciaComb(dtstablas, "sucursal", CmbSuc, filter)
+    End Sub
 
-    ''End Sub
-
-    'Private Sub CmbBan_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbBan.SelectionChangeCommitted
-
-    '    'CmbSuc.DataSource = dtsDependencias.Tables("sucursal").Select("CodBanco = " & CmbBan.SelectedValue)
-    '    'CmbSuc.DisplayMember = "NombreSuc"
-    '    'CmbSuc.ValueMember = "CodSuc"
-    '    CmbSuc.DataSource = dtsDependencias.Tables("sucursal").DefaultView.RowFilter("CodBanco = " & CStr(CmbBan.SelectedValue))
-    '    'DtaSuc.Fill(dtsDependencias, "sucursal")
-
-    '    CmbSuc.DisplayMember = "NombreSuc"
-    '    CmbSuc.ValueMember = "CodSuc"
-
-
-    'End Sub
+    '------------------------------------------------------------------------------------
+    Public Sub SetDts(dts As DataSet)
+        dtstablas = dts
+    End Sub
 End Class

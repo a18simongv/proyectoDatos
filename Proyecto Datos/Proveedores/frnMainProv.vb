@@ -15,22 +15,23 @@ Public Class frnMainProv
         dtsManProv = New DataSet 'dts utilizar para proveedores
 
         'iniciamos los dta's
-        dtaProve = New OleDbDataAdapter("Select * from Proveedores", CnnGestion)
+        dtaProve = New OleDbDataAdapter("Select * from Proveedores order by Codigo", CnnGestion)
         dtaProve.Fill(dtsManProv, "Prov")
+        Dim cmbProv As New OleDbCommandBuilder(dtaProve)
 
-        dtaMun = New OleDbDataAdapter("Select * from Municipios", CnnGestion)
+        dtaMun = New OleDbDataAdapter("Select * from Municipios order by CodMun", CnnGestion)
         dtaMun.Fill(dtsManProv, "Mun")
 
-        dtaProvn = New OleDbDataAdapter("Select * from Provincias", CnnGestion)
+        dtaProvn = New OleDbDataAdapter("Select * from Provincias order by CodProv", CnnGestion)
         dtaProvn.Fill(dtsManProv, "Provn")
 
-        dtaSucur = New OleDbDataAdapter("Select * from Sucursales", CnnGestion)
+        dtaSucur = New OleDbDataAdapter("Select * from Sucursales order by CodSuc", CnnGestion)
         dtaSucur.Fill(dtsManProv, "sucursal")
 
-        dtaBan = New OleDbDataAdapter("Select * from Bancos", CnnGestion)
+        dtaBan = New OleDbDataAdapter("Select * from Bancos order by CodBanco", CnnGestion)
         dtaBan.Fill(dtsManProv, "banco")
 
-        dtaFmsPg = New OleDbDataAdapter("Select * from FormasPago", CnnGestion)
+        dtaFmsPg = New OleDbDataAdapter("Select * from FormasPago order by CodFPago", CnnGestion)
         dtaFmsPg.Fill(dtsManProv, "FmsPago")
 
         enlazarDatos()
@@ -48,7 +49,7 @@ Public Class frnMainProv
         TxtTelef.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "Tfno")
         TxtFax.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "Fax")
         TxtEmail.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "email")
-        TxtFecAlta.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "FecAlta")
+        dtpAlta.DataBindings.Add("value", dtsManProv.Tables("Prov"), "FecAlta")
         TxtCodBan.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "CodBan")
         TxtCodSuc.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "CodSuc")
         TxtCodFPago.DataBindings.Add("Text", dtsManProv.Tables("Prov"), "CodFPago")
@@ -141,14 +142,67 @@ Public Class frnMainProv
         frmNuevo.LblCodProv.Visible = False
         frmNuevo.TxtCodProv.Visible = False
 
+        frmNuevo.SetDts(dtsManProv)
         enlazarCombos(frmNuevo)
         If frmNuevo.ShowDialog() = DialogResult.Cancel Then
             Exit Sub
         End If
 
-        'insertamos el nuevo prov
+        'preparamos el nuevo prov
         Dim fprov As DataRow
+        fprov = dtsManProv.Tables("Prov").NewRow
+        fprov("Codigo") = ObtenerUltimoCodigo()
+        cargarDatos(frmNuevo, fprov)
 
+        'realizamos la insercion
+        dtsManProv.Tables("Prov").Rows.Add(fprov)
+        dtaProve.Update(dtsManProv.Tables("Prov")) '¡¡¡ OJO DTAAAA!!!!
+        dtsManProv.Tables("Prov").AcceptChanges()
+        BtnUltimo_Click(Nothing, Nothing)
+
+    End Sub
+
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click
+        Dim FrmModif As New FrmEdicionProv
+        enlazarCombos(FrmModif)
+        pasarDatos(FrmModif)
+
+        FrmModif.SetDts(dtsManProv)
+
+        FrmModif.TxtCodProv.ReadOnly = True
+        FrmModif.dtpAlta.Enabled = False
+
+        FrmModif.Text = "Modificar Proveedor"
+        If FrmModif.ShowDialog() = DialogResult.Cancel Then
+            Exit Sub
+        End If
+
+        'Obtenemos la fila correspondiente a la posicion del dataset en la tabla productos mediante el binding contest del formulario
+        Dim fprover As DataRow
+        fprover = dtsManProv.Tables("Prov").Rows(Me.BindingContext(dtsManProv.Tables("Prov")).Position)
+
+        fprover.BeginEdit()
+        cargarDatos(FrmModif, fprover)
+        fprover.EndEdit()
+        dtaProve.Update(dtsManProv.Tables("Prov"))
+        dtsManProv.Tables("Prov").AcceptChanges()
+
+    End Sub
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+        If MsgBox("Eliminar proveedor", MsgBoxStyle.Question + MsgBoxStyle.YesNo +
+                  MsgBoxStyle.DefaultButton2, "Atención") = MsgBoxResult.No Then
+            Exit Sub
+        End If
+
+        'Cogemos la fila vinculada en el contexto. Explicado en BtnModificar_click.
+        Dim fprover As DataRow
+        fprover = dtsManProv.Tables("Prov").Rows(Me.BindingContext(dtsManProv.Tables("Prov")).Position)
+
+        'eliminamos la fila
+        fprover.Delete()
+        dtaProve.Update(dtsManProv.Tables("Prov"))
+        dtsManProv.Tables("Prov").AcceptChanges()
     End Sub
 
     Public Sub cargarDatos(formOr As FrmEdicionProv, fila As DataRow)
@@ -167,5 +221,60 @@ Public Class frnMainProv
             fila("CodSuc") = CShort(.CmbSuc.SelectedValue)
             fila("CodFPago") = CShort(.CmbFPago.SelectedValue)
         End With
+    End Sub
+
+    Private Function ObtenerUltimoCodigo() As Short
+        Dim cmdultimo As New OleDbCommand("select max(Codigo) from Proveedores", CnnGestion)
+        Dim ultimo As Object
+        Dim ultimoCod As Short
+        CnnGestion.Open() 'Objeto del contexto
+        ultimo = cmdultimo.ExecuteScalar 'Ejecutar la busqueda de un solo campo. Retorna la primera columna de la primera fila.
+        CnnGestion.Close()
+
+        If ultimo Is DBNull.Value Then
+            ultimoCod = 1 'Si no hay valores -> 1
+        Else
+            ultimoCod = CShort(ultimo) + 1
+        End If
+        Return ultimoCod 'Amo los returns.
+    End Function
+
+    Public Sub pasarDatos(frmDest As FrmEdicionProv)
+        With frmDest
+            .TxtCodProv.Text = TxtCodProv.Text
+            .TxtNIF.Text = TxtNIF.Text
+            .TxtNombre.Text = TxtNombre.Text
+            .TxtDirec.Text = TxtDirec.Text
+            .TxtCodPos.Text = TxtCodPos.Text
+            MostrarVlrCombo(dtsManProv.Tables("mun"), "CodMun", .cmbPobl, TxtPobl.Text)
+            MostrarVlrCombo(dtsManProv.Tables("Provn"), "CodProv", .cmbProv, TxtProv.Text)
+            .TxtTelef.Text = TxtTelef.Text
+            .TxtFax.Text = TxtFax.Text
+            .TxtEmail.Text = TxtEmail.Text
+            .dtpAlta.Value = dtpAlta.Value
+            MostrarVlrCombo(dtsManProv.Tables("banco"), "CodBanco", .CmbBan, TxtCodBan.Text)
+            MostrarVlrCombo(dtsManProv.Tables("sucursal"), "CodSuc", .CmbSuc, TxtCodSuc.Text)
+            MostrarVlrCombo(dtsManProv.Tables("FmsPago"), "CodFPago", .CmbFPago, TxtCodFPago.Text)
+        End With
+    End Sub
+
+    Private Sub BtnFiltrar_Click(sender As Object, e As EventArgs) Handles BtnFiltrar.Click
+        'Veo el texto del botón y ejecuto una acción o no en consecuencia.
+        If BtnFiltrar.Text = "Ver Todos" Then
+            dtsManProv.Tables("Prov").DefaultView.RowFilter = "" 'Sin filtros. Recoge todas las filas.
+            BtnFiltrar.Text = "..."
+            Exit Sub
+        End If
+
+        Dim frmf As New FrmFilterProv 'Instancio el formulario
+        If frmf.ShowDialog() = Windows.Forms.DialogResult.Cancel Then
+            Exit Sub
+        End If
+
+        Dim queryFiltro As String = frmf.CreateFilterQuery(dtsManProv)
+        Me.Cursor = Cursors.WaitCursor 'Cambiamos el estilo del cursor a la ruedita.
+        dtsManProv.Tables("Prov").DefaultView.RowFilter = queryFiltro 'Defaultview.Find vs DefaultView.RowFilter
+        Me.Cursor = Cursors.Default 'Cambiamos de la ruedita al cursor normal
+        BtnFiltrar.Text = "Ver Todos" 'Cambiamos el texto del botón
     End Sub
 End Class

@@ -4,6 +4,7 @@ Module Procedimientos_y_datos_globales
 
     'Procedimiento de enlace de combos
     Public Sub MostrarVlrCombo(tabla As DataTable, campo As String, cmb As ComboBox, buscarCmb As String)
+        tabla.DefaultView.RowFilter = ""
         tabla.DefaultView.Sort = campo
         Dim posicion As Integer = tabla.DefaultView.Find(buscarCmb)
 
@@ -13,5 +14,10 @@ Module Procedimientos_y_datos_globales
             cmb.SelectedIndex = posicion
         End If
 
+    End Sub
+
+    Public Sub dependenciaComb(dtsTabla As DataSet, tabla As String, cmb As ComboBox, filtrar As String)
+        dtsTabla.Tables(tabla).DefaultView.RowFilter = filtrar
+        cmb.DataSource = dtsTabla.Tables(tabla)
     End Sub
 End Module

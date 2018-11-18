@@ -56,6 +56,4 @@
         Handles TxtDescri.Leave, TxtExist.Leave, TxtStMin.Leave, TxtStRep.Leave, TxtPVP.Leave, TxtPCM.Leave
         sender.backcolor = Color.White
     End Sub
-
-
 End Class

@@ -91,6 +91,18 @@
     <Compile Include="Clientes\FrmEdicionClt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormasPago\FrmEdicionFPago.Designer.vb">
+      <DependentUpon>FrmEdicionFPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormasPago\FrmEdicionFPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormasPago\FrmMainFPago.Designer.vb">
+      <DependentUpon>FrmMainFPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormasPago\FrmMainFPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEdicionProd.Designer.vb">
       <DependentUpon>FrmEdicionProd.vb</DependentUpon>
     </Compile>
@@ -173,6 +185,12 @@
     <EmbeddedResource Include="Clientes\FrmMainClt.resx">
       <DependentUpon>FrmMainClt.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormasPago\FrmEdicionFPago.resx">
+      <DependentUpon>FrmEdicionFPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormasPago\FrmMainFPago.resx">
+      <DependentUpon>FrmMainFPago.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEdicionProd.resx">
       <DependentUpon>FrmEdicionProd.vb</DependentUpon>
     </EmbeddedResource>
@@ -219,5 +237,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

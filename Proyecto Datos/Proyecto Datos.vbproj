@@ -73,6 +73,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\FrmMainClt.Designer.vb">
+      <DependentUpon>FrmMainClt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\FrmMainClt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\FrmFilterClt.Designer.vb">
+      <DependentUpon>FrmFilterClt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\FrmFilterClt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\FrmEdicionClt.Designer.vb">
+      <DependentUpon>FrmEdicionClt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\FrmEdicionClt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEdicionProd.Designer.vb">
       <DependentUpon>FrmEdicionProd.vb</DependentUpon>
     </Compile>
@@ -134,6 +152,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clientes\FrmEdicionClt.resx">
+      <DependentUpon>FrmEdicionClt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\FrmFilterClt.resx">
+      <DependentUpon>FrmFilterClt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\FrmMainClt.resx">
+      <DependentUpon>FrmMainClt.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEdicionProd.resx">
       <DependentUpon>FrmEdicionProd.vb</DependentUpon>
     </EmbeddedResource>

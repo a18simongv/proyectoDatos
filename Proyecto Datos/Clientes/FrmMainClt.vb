@@ -4,14 +4,14 @@ Public Class FrmMainClt
     Dim dtaclte, dtaMun, dtaProvn, dtaBan, dtaSucur, dtaFmsPg As OleDbDataAdapter
 
     Private Sub frnMainclt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CnnGestion = New OleDbConnection _
-        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         'CnnGestion = New OleDbConnection _
-        '("cltider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        CnnGestion = New OleDbConnection _
+        ("provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
-        dtsManclt = New DataSet 'dts utilizar para clteedores
+        dtsManClt = New DataSet 'dts utilizar para clteedores
 
         'iniciamos los dta's
         dtaclte = New OleDbDataAdapter("Select * from Clientes order by Codigo", CnnGestion)
@@ -135,12 +135,12 @@ Public Class FrmMainClt
         End With
     End Sub
 
-    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click, tsNuevo.Click
         Dim frmNuevo As New FrmEdicionClt
 
         frmNuevo.Text = "Nuevo Cliente"
 
-        frmNuevo.LblCodclt.Visible = False
+        frmNuevo.LblCodClt.Visible = False
         frmNuevo.TxtCodClt.Visible = False
 
         frmNuevo.SetDts(dtsManClt)
@@ -163,7 +163,7 @@ Public Class FrmMainClt
 
     End Sub
 
-    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click, tsModificar.Click
         Dim FrmModif As New FrmEdicionClt
         enlazarCombos(FrmModif)
         pasarDatos(FrmModif)
@@ -190,7 +190,7 @@ Public Class FrmMainClt
 
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click, BtnEliminar.Click
         If MsgBox("Eliminar cliente", MsgBoxStyle.Question + MsgBoxStyle.YesNo +
                   MsgBoxStyle.DefaultButton2, "Atención") = MsgBoxResult.No Then
             Exit Sub
@@ -279,5 +279,9 @@ Public Class FrmMainClt
         dtsManClt.Tables("clt").DefaultView.RowFilter = queryFiltro 'Defaultview.Find vs DefaultView.RowFilter
         Me.Cursor = Cursors.Default 'Cambiamos de la ruedita al cursor normal
         BtnFiltrar.Text = "Ver Todos" 'Cambiamos el texto del botón
+    End Sub
+
+    Private Sub tsSalir_Click(sender As Object, e As EventArgs) Handles tsSalir.Click
+        Me.Close()
     End Sub
 End Class

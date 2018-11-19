@@ -5,12 +5,12 @@ Public Class FrmMainTIva
     Dim dtaTpIv As OleDbDataAdapter
 
     Private Sub FrmMainTIva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CnnGestion = New OleDbConnection _
-        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         'CnnGestion = New OleDbConnection _
         '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        CnnGestion = New OleDbConnection _
+        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         dtsIva = New DataSet
 
@@ -41,7 +41,7 @@ Public Class FrmMainTIva
         Me.BindingContext(dtsIva.Tables("iva")).Position = Me.BindingContext(dtsIva.Tables("iva")).Count - 1
     End Sub
 
-    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click, tsNuevo.Click
         Dim frmNuevo As New FrmEdicionTIva
 
         frmNuevo.Text = "Nuevo tipo iva"
@@ -67,7 +67,7 @@ Public Class FrmMainTIva
 
     End Sub
 
-    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click, tsModificar.Click
         Dim FrmModif As New FrmEdicionTIva
         pasarDatos(FrmModif)
 
@@ -90,7 +90,7 @@ Public Class FrmMainTIva
 
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click, tsEliminar.Click
         If MsgBox("Eliminar Tipo Iva", MsgBoxStyle.Question + MsgBoxStyle.YesNo +
                   MsgBoxStyle.DefaultButton2, "Atención") = MsgBoxResult.No Then
             Exit Sub
@@ -135,4 +135,7 @@ Public Class FrmMainTIva
         End With
     End Sub
 
+    Private Sub tsSalir_Click(sender As Object, e As EventArgs) Handles tsSalir.Click
+        Me.Close()
+    End Sub
 End Class

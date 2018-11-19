@@ -139,6 +139,7 @@ Partial Class FrmEdicionClt
         Me.TxtFax.Name = "TxtFax"
         Me.TxtFax.Size = New System.Drawing.Size(188, 20)
         Me.TxtFax.TabIndex = 91
+        Me.TxtFax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtTelef
         '
@@ -346,6 +347,7 @@ Partial Class FrmEdicionClt
         '
         'TxtDirEnv
         '
+        Me.TxtDirEnv.ForeColor = System.Drawing.Color.RoyalBlue
         Me.TxtDirEnv.Location = New System.Drawing.Point(182, 519)
         Me.TxtDirEnv.Name = "TxtDirEnv"
         Me.TxtDirEnv.Size = New System.Drawing.Size(188, 20)

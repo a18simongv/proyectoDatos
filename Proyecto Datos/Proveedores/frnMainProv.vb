@@ -5,12 +5,12 @@ Public Class frnMainProv
     Dim dtaProve, dtaMun, dtaProvn, dtaBan, dtaSucur, dtaFmsPg As OleDbDataAdapter
 
     Private Sub frnMainProv_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CnnGestion = New OleDbConnection _
-        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         'CnnGestion = New OleDbConnection _
         '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        CnnGestion = New OleDbConnection _
+        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         dtsManProv = New DataSet 'dts utilizar para proveedores
 
@@ -134,7 +134,7 @@ Public Class frnMainProv
         End With
     End Sub
 
-    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click, tsNuevo.Click
         Dim frmNuevo As New FrmEdicionProv
 
         frmNuevo.Text = "Nuevo proveedor"
@@ -162,7 +162,7 @@ Public Class frnMainProv
 
     End Sub
 
-    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click, tsModificar.Click
         Dim FrmModif As New FrmEdicionProv
         enlazarCombos(FrmModif)
         pasarDatos(FrmModif)
@@ -189,7 +189,7 @@ Public Class frnMainProv
 
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click, tsEliminar.Click
         If MsgBox("Eliminar proveedor", MsgBoxStyle.Question + MsgBoxStyle.YesNo +
                   MsgBoxStyle.DefaultButton2, "Atención") = MsgBoxResult.No Then
             Exit Sub
@@ -211,7 +211,7 @@ Public Class frnMainProv
             fila("Nombre") = .TxtNombre.Text
             fila("Dirección") = .TxtDirec.Text
             fila("CodPos") = .TxtCodPos.Text
-            fila("Poblac") = .cmbPobl.SelectedValue
+            fila("Poblac") = CShort(.cmbPobl.SelectedValue)
             fila("Provin") = CShort(.cmbProv.SelectedValue)
             fila("Tfno") = .TxtTelef.Text
             fila("Fax") = .TxtFax.Text
@@ -276,5 +276,9 @@ Public Class frnMainProv
         dtsManProv.Tables("Prov").DefaultView.RowFilter = queryFiltro 'Defaultview.Find vs DefaultView.RowFilter
         Me.Cursor = Cursors.Default 'Cambiamos de la ruedita al cursor normal
         BtnFiltrar.Text = "Ver Todos" 'Cambiamos el texto del botón
+    End Sub
+
+    Private Sub tsSalir_Click(sender As Object, e As EventArgs) Handles tsSalir.Click
+        Me.Close()
     End Sub
 End Class

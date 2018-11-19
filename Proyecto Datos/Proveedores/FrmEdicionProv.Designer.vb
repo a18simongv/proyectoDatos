@@ -62,6 +62,7 @@ Partial Class FrmEdicionProv
         Me.TxtFax.Name = "TxtFax"
         Me.TxtFax.Size = New System.Drawing.Size(188, 23)
         Me.TxtFax.TabIndex = 56
+        Me.TxtFax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TxtTelef
         '

@@ -5,12 +5,12 @@ Public Class FrmMainFPago
     Dim dtaFPago As OleDbDataAdapter
 
     Private Sub FrmMainFPago_Load(sender As Object, e As EventArgs) Handles Me.Load
-        CnnGestion = New OleDbConnection _
-        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         'CnnGestion = New OleDbConnection _
         '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        CnnGestion = New OleDbConnection _
+        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         dtsFPago = New DataSet
 
@@ -43,7 +43,7 @@ Public Class FrmMainFPago
         Me.BindingContext(dtsFPago.Tables("pago")).Position = Me.BindingContext(dtsFPago.Tables("pago")).Count - 1
     End Sub
 
-    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click, tsNuevo.Click
         Dim frmNuevo As New FrmEdicionFPago
 
         frmNuevo.Text = "Nueva forma de pago"
@@ -69,7 +69,7 @@ Public Class FrmMainFPago
 
     End Sub
 
-    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click, tsModificar.Click
         Dim FrmModif As New FrmEdicionFPago
         pasarDatos(FrmModif)
 
@@ -92,7 +92,7 @@ Public Class FrmMainFPago
 
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click, tsEliminar.Click
         If MsgBox("Eliminar forma de pago", MsgBoxStyle.Question + MsgBoxStyle.YesNo +
                   MsgBoxStyle.DefaultButton2, "Atención") = MsgBoxResult.No Then
             Exit Sub
@@ -139,5 +139,9 @@ Public Class FrmMainFPago
             .txtPlazo.Text = txtPlazo.Text
             .txtCad.Text = txtCad.Text
         End With
+    End Sub
+
+    Private Sub tsSalir_Click(sender As Object, e As EventArgs) Handles tsSalir.Click
+        Me.Close()
     End Sub
 End Class

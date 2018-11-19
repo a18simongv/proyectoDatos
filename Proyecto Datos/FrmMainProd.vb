@@ -7,12 +7,12 @@ Public Class FrmMainProd
 
     Private Sub FrmProductos_Load(sender As Object, e As EventArgs) Handles Me.Load 'Captura el evento de carga del formulario
 
-        CnnGestion = New OleDbConnection _
-        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         'CnnGestion = New OleDbConnection _
         '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        CnnGestion = New OleDbConnection _
+        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         DtsMProductos = New DataSet 'Instanciamos el datasetManager que contendra la gestion de las tablas necesarias
 
@@ -86,7 +86,7 @@ Public Class FrmMainProd
             Me.BindingContext(DtsMProductos.Tables("Prod")).Count - 1
     End Sub
 
-    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click, tsNuevo.Click
         Dim FrmNuevo As New FrmEdicionProd 'Creamos una instancia del formulario quequeremos lanzar
         EnlazarCombos(FrmNuevo) 'Pasamos la referencia para trabajar con los campos del nuevo formulario que lanzaremos
         FrmNuevo.Text = "Nuevo Producto" 'Propiedad del titulo
@@ -105,7 +105,7 @@ Public Class FrmMainProd
         BtnUltimo_Click(Nothing, Nothing) 'Nos colocamos en el ultimo registro (el recién insertado).
     End Sub
 
-    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click
+    Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles BtnModificar.Click, tsModificar.Click
         Dim FrmModif As New FrmEdicionProd
         EnlazarCombos(FrmModif)
         FrmModif.Text = "Modificar Producto"
@@ -169,7 +169,7 @@ Public Class FrmMainProd
 
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click, tsEliminar.Click
         'Creamos una alerta de seguridad con un MsgBox
         If MsgBox("Eliminar producto", MsgBoxStyle.Question + MsgBoxStyle.YesNo +
                   MsgBoxStyle.DefaultButton2, "Atención") = MsgBoxResult.No Then
@@ -240,4 +240,7 @@ Public Class FrmMainProd
         BtnFiltrar.Text = "Ver Todos" 'Cambiamos el texto del botón
     End Sub
 
+    Private Sub tsSalir_Click(sender As Object, e As EventArgs) Handles tsSalir.Click
+        Me.Close()
+    End Sub
 End Class

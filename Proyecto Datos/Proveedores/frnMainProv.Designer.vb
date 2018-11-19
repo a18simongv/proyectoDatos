@@ -68,10 +68,18 @@ Partial Class frnMainProv
         Me.BtnPrimero = New System.Windows.Forms.Button()
         Me.DtgProveedores = New System.Windows.Forms.DataGridView()
         Me.dtpAlta = New System.Windows.Forms.DateTimePicker()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.DatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsNuevo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsModificar = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsEliminar = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -518,11 +526,58 @@ Partial Class frnMainProv
         Me.dtpAlta.Size = New System.Drawing.Size(244, 22)
         Me.dtpAlta.TabIndex = 37
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosToolStripMenuItem, Me.OperacionesToolStripMenuItem, Me.tsSalir})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1155, 24)
+        Me.MenuStrip1.TabIndex = 38
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'DatosToolStripMenuItem
+        '
+        Me.DatosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsNuevo, Me.tsModificar, Me.tsEliminar})
+        Me.DatosToolStripMenuItem.Name = "DatosToolStripMenuItem"
+        Me.DatosToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
+        Me.DatosToolStripMenuItem.Text = "Datos"
+        '
+        'tsNuevo
+        '
+        Me.tsNuevo.Name = "tsNuevo"
+        Me.tsNuevo.Size = New System.Drawing.Size(125, 22)
+        Me.tsNuevo.Text = "&Nuevo"
+        '
+        'tsModificar
+        '
+        Me.tsModificar.Name = "tsModificar"
+        Me.tsModificar.Size = New System.Drawing.Size(125, 22)
+        Me.tsModificar.Text = "&Modificar"
+        '
+        'tsEliminar
+        '
+        Me.tsEliminar.Name = "tsEliminar"
+        Me.tsEliminar.Size = New System.Drawing.Size(125, 22)
+        Me.tsEliminar.Text = "&Eliminar"
+        '
+        'OperacionesToolStripMenuItem
+        '
+        Me.OperacionesToolStripMenuItem.Name = "OperacionesToolStripMenuItem"
+        Me.OperacionesToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
+        Me.OperacionesToolStripMenuItem.Text = "Operaciones"
+        '
+        'tsSalir
+        '
+        Me.tsSalir.Name = "tsSalir"
+        Me.tsSalir.Size = New System.Drawing.Size(41, 20)
+        Me.tsSalir.Text = "&Salir"
+        '
         'frnMainProv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1155, 768)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.dtpAlta)
         Me.Controls.Add(Me.DtgProveedores)
         Me.Controls.Add(Me.GroupBox1)
@@ -564,6 +619,8 @@ Partial Class frnMainProv
         Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -614,4 +671,11 @@ Partial Class frnMainProv
     Friend WithEvents BtnPrimero As Button
     Friend WithEvents DtgProveedores As DataGridView
     Friend WithEvents dtpAlta As DateTimePicker
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents DatosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsNuevo As ToolStripMenuItem
+    Friend WithEvents tsModificar As ToolStripMenuItem
+    Friend WithEvents tsEliminar As ToolStripMenuItem
+    Friend WithEvents OperacionesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsSalir As ToolStripMenuItem
 End Class

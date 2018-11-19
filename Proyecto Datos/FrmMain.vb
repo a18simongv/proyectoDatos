@@ -17,6 +17,22 @@ Public Class FrmMain
     End Sub
 
     Private Sub BtnProveedores_Click(sender As Object, e As EventArgs) Handles BtnProveedores.Click
-        frnMainProv.ShowDialog()
+        Dim frm As New frnMainProv
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub BtnClt_Click(sender As Object, e As EventArgs) Handles BtnClt.Click
+        Dim frm As New FrmMainClt
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub BtnTiposIva_Click(sender As Object, e As EventArgs) Handles BtnTiposIva.Click
+        Dim frm As New FrmMainTIva
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub BtnFPago_Click(sender As Object, e As EventArgs) Handles BtnFPago.Click
+        Dim frm As New FrmMainFPago
+        frm.ShowDialog()
     End Sub
 End Class

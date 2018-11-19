@@ -16,8 +16,57 @@ Module Procedimientos_y_datos_globales
 
     End Sub
 
-    Public Sub dependenciaComb(dtsTabla As DataSet, tabla As String, cmb As ComboBox, filtrar As String)
-        dtsTabla.Tables(tabla).DefaultView.RowFilter = filtrar
-        cmb.DataSource = dtsTabla.Tables(tabla)
+    Public Sub dependenciaComb(tabla As DataTable, cmb As ComboBox, filtrar As String)
+        tabla.DefaultView.RowFilter = filtrar
+        cmb.DataSource = tabla
+    End Sub
+
+    'eventos de keypress
+    Public Sub numEnterosPos(sender As Object, e As KeyPressEventArgs)
+        Dim txtbox As TextBox
+        txtbox = TryCast(sender, TextBox)
+
+        Dim valores As String = "0123456789" & Chr(8)
+
+        If Not valores.Contains(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+    Public Sub numEnteros(sender As Object, e As KeyPressEventArgs)
+        Dim txtbox As TextBox
+        txtbox = TryCast(sender, TextBox)
+
+        Dim valores As String = "-0123456789" & Chr(8)
+
+        If Not valores.Contains(e.KeyChar) Then
+            e.Handled = True
+        End If
+        If e.KeyChar = "-" Then
+            If txtbox.Text.Contains(e.KeyChar) Then
+                e.Handled = True
+            Else
+                txtbox.Text = e.KeyChar & txtbox.Text
+            End If
+        End If
+    End Sub
+    Public Sub email(sender As Object, e As KeyPressEventArgs)
+        Dim txtbox As TextBox
+        txtbox = TryCast(sender, TextBox)
+
+        Dim valores As String = "0123456789" & Chr(8)
+
+        If Not valores.Contains(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+    Public Sub numDecimal(sender As Object, e As KeyPressEventArgs)
+        Dim txtbox As TextBox
+        txtbox = TryCast(sender, TextBox)
+
+        Dim valores As String = "0123456789" & Chr(8)
+
+        If Not valores.Contains(e.KeyChar) Then
+            e.Handled = True
+        End If
     End Sub
 End Module

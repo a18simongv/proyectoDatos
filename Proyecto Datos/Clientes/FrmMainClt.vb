@@ -79,17 +79,17 @@ Public Class FrmMainClt
         End With
     End Sub
 
-    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click
-        Me.BindingContext(dtsManclt.Tables("clt")).Position = 0
+    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click, btsPri.Click
+        Me.BindingContext(dtsManClt.Tables("clt")).Position = 0
     End Sub
-    Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click
-        Me.BindingContext(dtsManclt.Tables("clt")).Position -= 1
+    Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click, btsAnt.Click
+        Me.BindingContext(dtsManClt.Tables("clt")).Position -= 1
     End Sub
-    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click
-        Me.BindingContext(dtsManclt.Tables("clt")).Position += 1
+    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click, btsSig.Click
+        Me.BindingContext(dtsManClt.Tables("clt")).Position += 1
     End Sub
-    Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click
-        Me.BindingContext(dtsManclt.Tables("clt")).Position = Me.BindingContext(dtsManclt.Tables("clt")).Count - 1
+    Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click, btsUlt.Click
+        Me.BindingContext(dtsManClt.Tables("clt")).Position = Me.BindingContext(dtsManClt.Tables("clt")).Count - 1
     End Sub
 
     Private Sub Buscarclt(sender As Object, e As EventArgs) Handles BtnBuscar.Click

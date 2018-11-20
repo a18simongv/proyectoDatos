@@ -71,17 +71,25 @@ Partial Class FrmMainProd
         Me.tsEliminar = New System.Windows.Forms.ToolStripMenuItem()
         Me.OperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsSalir = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btsUlt = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.btsSig = New System.Windows.Forms.ToolStripButton()
+        Me.btsAnt = New System.Windows.Forms.ToolStripButton()
+        Me.btsPri = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DtgProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(71, 47)
+        Me.Label1.Location = New System.Drawing.Point(71, 76)
         Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(157, 24)
@@ -91,7 +99,7 @@ Partial Class FrmMainProd
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(71, 100)
+        Me.Label2.Location = New System.Drawing.Point(71, 129)
         Me.Label2.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(115, 24)
@@ -101,7 +109,7 @@ Partial Class FrmMainProd
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(71, 149)
+        Me.Label3.Location = New System.Drawing.Point(71, 178)
         Me.Label3.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(110, 24)
@@ -111,7 +119,7 @@ Partial Class FrmMainProd
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(71, 199)
+        Me.Label4.Location = New System.Drawing.Point(71, 228)
         Me.Label4.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(128, 24)
@@ -121,7 +129,7 @@ Partial Class FrmMainProd
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(71, 249)
+        Me.Label5.Location = New System.Drawing.Point(71, 278)
         Me.Label5.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(161, 24)
@@ -131,7 +139,7 @@ Partial Class FrmMainProd
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(71, 299)
+        Me.Label6.Location = New System.Drawing.Point(71, 328)
         Me.Label6.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(67, 24)
@@ -141,7 +149,7 @@ Partial Class FrmMainProd
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(71, 349)
+        Me.Label7.Location = New System.Drawing.Point(71, 378)
         Me.Label7.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(199, 24)
@@ -151,7 +159,7 @@ Partial Class FrmMainProd
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(71, 399)
+        Me.Label8.Location = New System.Drawing.Point(71, 428)
         Me.Label8.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(103, 24)
@@ -161,7 +169,7 @@ Partial Class FrmMainProd
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(71, 448)
+        Me.Label9.Location = New System.Drawing.Point(71, 477)
         Me.Label9.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(196, 24)
@@ -171,7 +179,7 @@ Partial Class FrmMainProd
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(71, 498)
+        Me.Label10.Location = New System.Drawing.Point(71, 527)
         Me.Label10.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(101, 24)
@@ -181,7 +189,7 @@ Partial Class FrmMainProd
         'TxtCodProd
         '
         Me.TxtCodProd.ForeColor = System.Drawing.Color.Blue
-        Me.TxtCodProd.Location = New System.Drawing.Point(315, 49)
+        Me.TxtCodProd.Location = New System.Drawing.Point(315, 78)
         Me.TxtCodProd.Name = "TxtCodProd"
         Me.TxtCodProd.ReadOnly = True
         Me.TxtCodProd.Size = New System.Drawing.Size(100, 29)
@@ -190,7 +198,7 @@ Partial Class FrmMainProd
         'TxtDescri
         '
         Me.TxtDescri.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtDescri.Location = New System.Drawing.Point(315, 97)
+        Me.TxtDescri.Location = New System.Drawing.Point(315, 126)
         Me.TxtDescri.Name = "TxtDescri"
         Me.TxtDescri.ReadOnly = True
         Me.TxtDescri.Size = New System.Drawing.Size(449, 29)
@@ -199,7 +207,7 @@ Partial Class FrmMainProd
         'TxtExist
         '
         Me.TxtExist.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtExist.Location = New System.Drawing.Point(315, 146)
+        Me.TxtExist.Location = New System.Drawing.Point(315, 175)
         Me.TxtExist.Name = "TxtExist"
         Me.TxtExist.ReadOnly = True
         Me.TxtExist.Size = New System.Drawing.Size(100, 29)
@@ -209,7 +217,7 @@ Partial Class FrmMainProd
         'TxtStMin
         '
         Me.TxtStMin.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtStMin.Location = New System.Drawing.Point(315, 196)
+        Me.TxtStMin.Location = New System.Drawing.Point(315, 225)
         Me.TxtStMin.Name = "TxtStMin"
         Me.TxtStMin.ReadOnly = True
         Me.TxtStMin.Size = New System.Drawing.Size(100, 29)
@@ -219,7 +227,7 @@ Partial Class FrmMainProd
         'TxtStRep
         '
         Me.TxtStRep.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtStRep.Location = New System.Drawing.Point(315, 246)
+        Me.TxtStRep.Location = New System.Drawing.Point(315, 275)
         Me.TxtStRep.Name = "TxtStRep"
         Me.TxtStRep.ReadOnly = True
         Me.TxtStRep.Size = New System.Drawing.Size(100, 29)
@@ -229,7 +237,7 @@ Partial Class FrmMainProd
         'TxtPVP
         '
         Me.TxtPVP.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtPVP.Location = New System.Drawing.Point(315, 298)
+        Me.TxtPVP.Location = New System.Drawing.Point(315, 327)
         Me.TxtPVP.Name = "TxtPVP"
         Me.TxtPVP.ReadOnly = True
         Me.TxtPVP.Size = New System.Drawing.Size(100, 29)
@@ -239,7 +247,7 @@ Partial Class FrmMainProd
         'TxtPCM
         '
         Me.TxtPCM.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtPCM.Location = New System.Drawing.Point(315, 346)
+        Me.TxtPCM.Location = New System.Drawing.Point(315, 375)
         Me.TxtPCM.Name = "TxtPCM"
         Me.TxtPCM.ReadOnly = True
         Me.TxtPCM.Size = New System.Drawing.Size(100, 29)
@@ -249,7 +257,7 @@ Partial Class FrmMainProd
         'TxtTipoIva
         '
         Me.TxtTipoIva.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtTipoIva.Location = New System.Drawing.Point(315, 396)
+        Me.TxtTipoIva.Location = New System.Drawing.Point(315, 425)
         Me.TxtTipoIva.Name = "TxtTipoIva"
         Me.TxtTipoIva.ReadOnly = True
         Me.TxtTipoIva.Size = New System.Drawing.Size(25, 29)
@@ -259,7 +267,7 @@ Partial Class FrmMainProd
         'TxtCodProv
         '
         Me.TxtCodProv.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtCodProv.Location = New System.Drawing.Point(315, 445)
+        Me.TxtCodProv.Location = New System.Drawing.Point(315, 474)
         Me.TxtCodProv.Name = "TxtCodProv"
         Me.TxtCodProv.ReadOnly = True
         Me.TxtCodProv.Size = New System.Drawing.Size(100, 29)
@@ -271,7 +279,7 @@ Partial Class FrmMainProd
         Me.ChkPendiente.AutoSize = True
         Me.ChkPendiente.Enabled = False
         Me.ChkPendiente.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.ChkPendiente.Location = New System.Drawing.Point(315, 500)
+        Me.ChkPendiente.Location = New System.Drawing.Point(315, 529)
         Me.ChkPendiente.Name = "ChkPendiente"
         Me.ChkPendiente.Size = New System.Drawing.Size(15, 14)
         Me.ChkPendiente.TabIndex = 19
@@ -411,7 +419,7 @@ Partial Class FrmMainProd
         Me.Panel1.Controls.Add(Me.Label11)
         Me.Panel1.Controls.Add(Me.BtnBuscar)
         Me.Panel1.Controls.Add(Me.TxtCodBuscar)
-        Me.Panel1.Location = New System.Drawing.Point(809, 23)
+        Me.Panel1.Location = New System.Drawing.Point(809, 52)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(338, 162)
         Me.Panel1.TabIndex = 23
@@ -446,7 +454,7 @@ Partial Class FrmMainProd
         Me.Panel2.Controls.Add(Me.BtnEliminar)
         Me.Panel2.Controls.Add(Me.BtnModificar)
         Me.Panel2.Controls.Add(Me.BtnNuevo)
-        Me.Panel2.Location = New System.Drawing.Point(809, 249)
+        Me.Panel2.Location = New System.Drawing.Point(809, 278)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(338, 176)
         Me.Panel2.TabIndex = 24
@@ -524,12 +532,68 @@ Partial Class FrmMainProd
         Me.tsSalir.Size = New System.Drawing.Size(41, 20)
         Me.tsSalir.Text = "&Salir"
         '
+        'btsUlt
+        '
+        Me.btsUlt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsUlt.Image = CType(resources.GetObject("btsUlt.Image"), System.Drawing.Image)
+        Me.btsUlt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsUlt.Name = "btsUlt"
+        Me.btsUlt.Size = New System.Drawing.Size(23, 22)
+        Me.btsUlt.Text = "ToolStripButton1"
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.btsPri, Me.btsAnt, Me.btsSig, Me.btsUlt, Me.ToolStripSeparator2})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1159, 25)
+        Me.ToolStrip1.TabIndex = 26
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'btsSig
+        '
+        Me.btsSig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsSig.Image = CType(resources.GetObject("btsSig.Image"), System.Drawing.Image)
+        Me.btsSig.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsSig.Name = "btsSig"
+        Me.btsSig.Size = New System.Drawing.Size(23, 22)
+        Me.btsSig.Text = "ToolStripButton2"
+        '
+        'btsAnt
+        '
+        Me.btsAnt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsAnt.Image = CType(resources.GetObject("btsAnt.Image"), System.Drawing.Image)
+        Me.btsAnt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsAnt.Name = "btsAnt"
+        Me.btsAnt.Size = New System.Drawing.Size(23, 22)
+        Me.btsAnt.Text = "ToolStripButton3"
+        '
+        'btsPri
+        '
+        Me.btsPri.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsPri.Image = CType(resources.GetObject("btsPri.Image"), System.Drawing.Image)
+        Me.btsPri.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsPri.Name = "btsPri"
+        Me.btsPri.Size = New System.Drawing.Size(23, 22)
+        Me.btsPri.Text = "ToolStripButton4"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
         'FrmMainProd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1159, 873)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.DtgProductos)
@@ -569,6 +633,8 @@ Partial Class FrmMainProd
         Me.Panel2.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -618,4 +684,11 @@ Partial Class FrmMainProd
     Friend WithEvents tsNuevo As ToolStripMenuItem
     Friend WithEvents tsModificar As ToolStripMenuItem
     Friend WithEvents tsEliminar As ToolStripMenuItem
+    Friend WithEvents btsUlt As ToolStripButton
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents btsPri As ToolStripButton
+    Friend WithEvents btsAnt As ToolStripButton
+    Friend WithEvents btsSig As ToolStripButton
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
 End Class

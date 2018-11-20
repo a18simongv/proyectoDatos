@@ -22,6 +22,7 @@ Partial Class FrmMainTIva
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMainTIva))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtTpIva = New System.Windows.Forms.TextBox()
@@ -44,16 +45,24 @@ Partial Class FrmMainTIva
         Me.tsEliminar = New System.Windows.Forms.ToolStripMenuItem()
         Me.OperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsSalir = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btsPri = New System.Windows.Forms.ToolStripButton()
+        Me.btsAnt = New System.Windows.Forms.ToolStripButton()
+        Me.btsSig = New System.Windows.Forms.ToolStripButton()
+        Me.btsUlt = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DtgTIva, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(37, 67)
+        Me.Label1.Location = New System.Drawing.Point(41, 96)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(100, 23)
         Me.Label1.TabIndex = 0
@@ -62,7 +71,7 @@ Partial Class FrmMainTIva
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(37, 112)
+        Me.Label2.Location = New System.Drawing.Point(41, 141)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 23)
         Me.Label2.TabIndex = 1
@@ -70,7 +79,7 @@ Partial Class FrmMainTIva
         '
         'txtTpIva
         '
-        Me.txtTpIva.Location = New System.Drawing.Point(183, 68)
+        Me.txtTpIva.Location = New System.Drawing.Point(187, 97)
         Me.txtTpIva.Name = "txtTpIva"
         Me.txtTpIva.Size = New System.Drawing.Size(63, 20)
         Me.txtTpIva.TabIndex = 2
@@ -78,7 +87,7 @@ Partial Class FrmMainTIva
         '
         'TxtPorcen
         '
-        Me.TxtPorcen.Location = New System.Drawing.Point(183, 113)
+        Me.TxtPorcen.Location = New System.Drawing.Point(187, 142)
         Me.TxtPorcen.Name = "TxtPorcen"
         Me.TxtPorcen.Size = New System.Drawing.Size(63, 20)
         Me.TxtPorcen.TabIndex = 3
@@ -88,7 +97,7 @@ Partial Class FrmMainTIva
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(252, 116)
+        Me.Label3.Location = New System.Drawing.Point(256, 145)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(21, 16)
         Me.Label3.TabIndex = 4
@@ -100,7 +109,7 @@ Partial Class FrmMainTIva
         Me.Panel2.Controls.Add(Me.BtnEliminar)
         Me.Panel2.Controls.Add(Me.BtnModificar)
         Me.Panel2.Controls.Add(Me.BtnNuevo)
-        Me.Panel2.Location = New System.Drawing.Point(450, 23)
+        Me.Panel2.Location = New System.Drawing.Point(454, 52)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(338, 176)
         Me.Panel2.TabIndex = 35
@@ -139,7 +148,7 @@ Partial Class FrmMainTIva
         Me.GroupBox1.Controls.Add(Me.BtnAnterior)
         Me.GroupBox1.Controls.Add(Me.BtnPrimero)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 234)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 263)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(776, 72)
         Me.GroupBox1.TabIndex = 36
@@ -185,7 +194,7 @@ Partial Class FrmMainTIva
         '
         Me.DtgTIva.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DtgTIva.GridColor = System.Drawing.Color.Gainsboro
-        Me.DtgTIva.Location = New System.Drawing.Point(91, 306)
+        Me.DtgTIva.Location = New System.Drawing.Point(95, 335)
         Me.DtgTIva.Name = "DtgTIva"
         Me.DtgTIva.ReadOnly = True
         Me.DtgTIva.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
@@ -239,11 +248,67 @@ Partial Class FrmMainTIva
         Me.tsSalir.Size = New System.Drawing.Size(41, 20)
         Me.tsSalir.Text = "&Salir"
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.btsPri, Me.btsAnt, Me.btsSig, Me.btsUlt, Me.ToolStripSeparator2})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(867, 25)
+        Me.ToolStrip1.TabIndex = 40
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'btsPri
+        '
+        Me.btsPri.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsPri.Image = CType(resources.GetObject("btsPri.Image"), System.Drawing.Image)
+        Me.btsPri.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsPri.Name = "btsPri"
+        Me.btsPri.Size = New System.Drawing.Size(23, 22)
+        Me.btsPri.Text = "ToolStripButton4"
+        '
+        'btsAnt
+        '
+        Me.btsAnt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsAnt.Image = CType(resources.GetObject("btsAnt.Image"), System.Drawing.Image)
+        Me.btsAnt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsAnt.Name = "btsAnt"
+        Me.btsAnt.Size = New System.Drawing.Size(23, 22)
+        Me.btsAnt.Text = "ToolStripButton3"
+        '
+        'btsSig
+        '
+        Me.btsSig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsSig.Image = CType(resources.GetObject("btsSig.Image"), System.Drawing.Image)
+        Me.btsSig.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsSig.Name = "btsSig"
+        Me.btsSig.Size = New System.Drawing.Size(23, 22)
+        Me.btsSig.Text = "ToolStripButton2"
+        '
+        'btsUlt
+        '
+        Me.btsUlt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsUlt.Image = CType(resources.GetObject("btsUlt.Image"), System.Drawing.Image)
+        Me.btsUlt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsUlt.Name = "btsUlt"
+        Me.btsUlt.Size = New System.Drawing.Size(23, 22)
+        Me.btsUlt.Text = "ToolStripButton1"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
         'FrmMainTIva
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(867, 466)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.DtgTIva)
         Me.Controls.Add(Me.GroupBox1)
@@ -260,6 +325,8 @@ Partial Class FrmMainTIva
         CType(Me.DtgTIva, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -287,4 +354,11 @@ Partial Class FrmMainTIva
     Friend WithEvents tsEliminar As ToolStripMenuItem
     Friend WithEvents OperacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsSalir As ToolStripMenuItem
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents btsPri As ToolStripButton
+    Friend WithEvents btsAnt As ToolStripButton
+    Friend WithEvents btsSig As ToolStripButton
+    Friend WithEvents btsUlt As ToolStripButton
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
 End Class

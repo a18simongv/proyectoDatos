@@ -75,17 +75,25 @@ Partial Class frnMainProv
         Me.tsEliminar = New System.Windows.Forms.ToolStripMenuItem()
         Me.OperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsSalir = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btsPri = New System.Windows.Forms.ToolStripButton()
+        Me.btsAnt = New System.Windows.Forms.ToolStripButton()
+        Me.btsSig = New System.Windows.Forms.ToolStripButton()
+        Me.btsUlt = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(59, 53)
+        Me.Label1.Location = New System.Drawing.Point(68, 70)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(133, 21)
@@ -95,7 +103,7 @@ Partial Class frnMainProv
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(59, 86)
+        Me.Label2.Location = New System.Drawing.Point(68, 103)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(133, 21)
@@ -105,7 +113,7 @@ Partial Class frnMainProv
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(59, 119)
+        Me.Label3.Location = New System.Drawing.Point(68, 136)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(133, 21)
@@ -115,7 +123,7 @@ Partial Class frnMainProv
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(59, 152)
+        Me.Label4.Location = New System.Drawing.Point(68, 169)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(133, 21)
@@ -125,7 +133,7 @@ Partial Class frnMainProv
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(59, 185)
+        Me.Label5.Location = New System.Drawing.Point(68, 202)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(133, 21)
@@ -135,7 +143,7 @@ Partial Class frnMainProv
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(59, 218)
+        Me.Label6.Location = New System.Drawing.Point(68, 235)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(133, 21)
@@ -145,7 +153,7 @@ Partial Class frnMainProv
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(59, 251)
+        Me.Label7.Location = New System.Drawing.Point(68, 268)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(133, 21)
@@ -155,7 +163,7 @@ Partial Class frnMainProv
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(59, 284)
+        Me.Label8.Location = New System.Drawing.Point(68, 301)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(133, 21)
@@ -165,7 +173,7 @@ Partial Class frnMainProv
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(59, 317)
+        Me.Label9.Location = New System.Drawing.Point(68, 334)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(133, 21)
@@ -175,7 +183,7 @@ Partial Class frnMainProv
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(59, 350)
+        Me.Label10.Location = New System.Drawing.Point(68, 367)
         Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(133, 21)
@@ -185,7 +193,7 @@ Partial Class frnMainProv
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(59, 383)
+        Me.Label11.Location = New System.Drawing.Point(68, 400)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(133, 21)
@@ -195,7 +203,7 @@ Partial Class frnMainProv
         'Label12
         '
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(59, 416)
+        Me.Label12.Location = New System.Drawing.Point(68, 433)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(133, 21)
@@ -205,7 +213,7 @@ Partial Class frnMainProv
         'Label13
         '
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(59, 449)
+        Me.Label13.Location = New System.Drawing.Point(68, 466)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(133, 21)
@@ -215,7 +223,7 @@ Partial Class frnMainProv
         'Label14
         '
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(59, 482)
+        Me.Label14.Location = New System.Drawing.Point(68, 499)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(133, 21)
@@ -225,7 +233,7 @@ Partial Class frnMainProv
         'TxtEmail
         '
         Me.TxtEmail.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtEmail.Location = New System.Drawing.Point(270, 349)
+        Me.TxtEmail.Location = New System.Drawing.Point(279, 366)
         Me.TxtEmail.Name = "TxtEmail"
         Me.TxtEmail.ReadOnly = True
         Me.TxtEmail.Size = New System.Drawing.Size(142, 22)
@@ -234,7 +242,7 @@ Partial Class frnMainProv
         'TxtProv
         '
         Me.TxtProv.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtProv.Location = New System.Drawing.Point(270, 250)
+        Me.TxtProv.Location = New System.Drawing.Point(279, 267)
         Me.TxtProv.Name = "TxtProv"
         Me.TxtProv.ReadOnly = True
         Me.TxtProv.Size = New System.Drawing.Size(142, 22)
@@ -244,7 +252,7 @@ Partial Class frnMainProv
         'TxtPobl
         '
         Me.TxtPobl.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtPobl.Location = New System.Drawing.Point(270, 217)
+        Me.TxtPobl.Location = New System.Drawing.Point(279, 234)
         Me.TxtPobl.Name = "TxtPobl"
         Me.TxtPobl.ReadOnly = True
         Me.TxtPobl.Size = New System.Drawing.Size(142, 22)
@@ -254,7 +262,7 @@ Partial Class frnMainProv
         'TxtCodPos
         '
         Me.TxtCodPos.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtCodPos.Location = New System.Drawing.Point(270, 184)
+        Me.TxtCodPos.Location = New System.Drawing.Point(279, 201)
         Me.TxtCodPos.Name = "TxtCodPos"
         Me.TxtCodPos.ReadOnly = True
         Me.TxtCodPos.Size = New System.Drawing.Size(142, 22)
@@ -264,7 +272,7 @@ Partial Class frnMainProv
         'TxtDirec
         '
         Me.TxtDirec.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtDirec.Location = New System.Drawing.Point(270, 151)
+        Me.TxtDirec.Location = New System.Drawing.Point(279, 168)
         Me.TxtDirec.Name = "TxtDirec"
         Me.TxtDirec.ReadOnly = True
         Me.TxtDirec.Size = New System.Drawing.Size(142, 22)
@@ -273,7 +281,7 @@ Partial Class frnMainProv
         'TxtNombre
         '
         Me.TxtNombre.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtNombre.Location = New System.Drawing.Point(270, 118)
+        Me.TxtNombre.Location = New System.Drawing.Point(279, 135)
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.ReadOnly = True
         Me.TxtNombre.Size = New System.Drawing.Size(142, 22)
@@ -282,7 +290,7 @@ Partial Class frnMainProv
         'TxtNIF
         '
         Me.TxtNIF.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtNIF.Location = New System.Drawing.Point(270, 85)
+        Me.TxtNIF.Location = New System.Drawing.Point(279, 102)
         Me.TxtNIF.Name = "TxtNIF"
         Me.TxtNIF.ReadOnly = True
         Me.TxtNIF.Size = New System.Drawing.Size(142, 22)
@@ -291,7 +299,7 @@ Partial Class frnMainProv
         'TxtCodProv
         '
         Me.TxtCodProv.ForeColor = System.Drawing.Color.Blue
-        Me.TxtCodProv.Location = New System.Drawing.Point(270, 52)
+        Me.TxtCodProv.Location = New System.Drawing.Point(279, 69)
         Me.TxtCodProv.Name = "TxtCodProv"
         Me.TxtCodProv.ReadOnly = True
         Me.TxtCodProv.Size = New System.Drawing.Size(142, 22)
@@ -300,7 +308,7 @@ Partial Class frnMainProv
         'TxtFax
         '
         Me.TxtFax.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtFax.Location = New System.Drawing.Point(270, 316)
+        Me.TxtFax.Location = New System.Drawing.Point(279, 333)
         Me.TxtFax.Name = "TxtFax"
         Me.TxtFax.ReadOnly = True
         Me.TxtFax.Size = New System.Drawing.Size(142, 22)
@@ -310,7 +318,7 @@ Partial Class frnMainProv
         'TxtTelef
         '
         Me.TxtTelef.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtTelef.Location = New System.Drawing.Point(270, 283)
+        Me.TxtTelef.Location = New System.Drawing.Point(279, 300)
         Me.TxtTelef.Name = "TxtTelef"
         Me.TxtTelef.ReadOnly = True
         Me.TxtTelef.Size = New System.Drawing.Size(142, 22)
@@ -320,7 +328,7 @@ Partial Class frnMainProv
         'TxtCodFPago
         '
         Me.TxtCodFPago.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtCodFPago.Location = New System.Drawing.Point(270, 481)
+        Me.TxtCodFPago.Location = New System.Drawing.Point(279, 498)
         Me.TxtCodFPago.Name = "TxtCodFPago"
         Me.TxtCodFPago.ReadOnly = True
         Me.TxtCodFPago.Size = New System.Drawing.Size(142, 22)
@@ -329,7 +337,7 @@ Partial Class frnMainProv
         'TxtCodBan
         '
         Me.TxtCodBan.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtCodBan.Location = New System.Drawing.Point(270, 415)
+        Me.TxtCodBan.Location = New System.Drawing.Point(279, 432)
         Me.TxtCodBan.Name = "TxtCodBan"
         Me.TxtCodBan.ReadOnly = True
         Me.TxtCodBan.Size = New System.Drawing.Size(142, 22)
@@ -339,7 +347,7 @@ Partial Class frnMainProv
         'TxtCodSuc
         '
         Me.TxtCodSuc.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TxtCodSuc.Location = New System.Drawing.Point(270, 448)
+        Me.TxtCodSuc.Location = New System.Drawing.Point(279, 465)
         Me.TxtCodSuc.Name = "TxtCodSuc"
         Me.TxtCodSuc.ReadOnly = True
         Me.TxtCodSuc.Size = New System.Drawing.Size(142, 22)
@@ -352,7 +360,7 @@ Partial Class frnMainProv
         Me.Panel2.Controls.Add(Me.BtnEliminar)
         Me.Panel2.Controls.Add(Me.BtnModificar)
         Me.Panel2.Controls.Add(Me.BtnNuevo)
-        Me.Panel2.Location = New System.Drawing.Point(739, 270)
+        Me.Panel2.Location = New System.Drawing.Point(748, 287)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(338, 176)
         Me.Panel2.TabIndex = 34
@@ -393,7 +401,7 @@ Partial Class frnMainProv
         Me.Panel1.Controls.Add(Me.Label16)
         Me.Panel1.Controls.Add(Me.BtnBuscar)
         Me.Panel1.Controls.Add(Me.TxtCodBuscar)
-        Me.Panel1.Location = New System.Drawing.Point(739, 44)
+        Me.Panel1.Location = New System.Drawing.Point(748, 61)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(338, 162)
         Me.Panel1.TabIndex = 33
@@ -521,7 +529,7 @@ Partial Class frnMainProv
         'dtpAlta
         '
         Me.dtpAlta.Enabled = False
-        Me.dtpAlta.Location = New System.Drawing.Point(270, 382)
+        Me.dtpAlta.Location = New System.Drawing.Point(279, 399)
         Me.dtpAlta.Name = "dtpAlta"
         Me.dtpAlta.Size = New System.Drawing.Size(244, 22)
         Me.dtpAlta.TabIndex = 37
@@ -572,11 +580,67 @@ Partial Class frnMainProv
         Me.tsSalir.Size = New System.Drawing.Size(41, 20)
         Me.tsSalir.Text = "&Salir"
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.btsPri, Me.btsAnt, Me.btsSig, Me.btsUlt, Me.ToolStripSeparator2})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1155, 25)
+        Me.ToolStrip1.TabIndex = 39
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'btsPri
+        '
+        Me.btsPri.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsPri.Image = CType(resources.GetObject("btsPri.Image"), System.Drawing.Image)
+        Me.btsPri.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsPri.Name = "btsPri"
+        Me.btsPri.Size = New System.Drawing.Size(23, 22)
+        Me.btsPri.Text = "ToolStripButton4"
+        '
+        'btsAnt
+        '
+        Me.btsAnt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsAnt.Image = CType(resources.GetObject("btsAnt.Image"), System.Drawing.Image)
+        Me.btsAnt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsAnt.Name = "btsAnt"
+        Me.btsAnt.Size = New System.Drawing.Size(23, 22)
+        Me.btsAnt.Text = "ToolStripButton3"
+        '
+        'btsSig
+        '
+        Me.btsSig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsSig.Image = CType(resources.GetObject("btsSig.Image"), System.Drawing.Image)
+        Me.btsSig.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsSig.Name = "btsSig"
+        Me.btsSig.Size = New System.Drawing.Size(23, 22)
+        Me.btsSig.Text = "ToolStripButton2"
+        '
+        'btsUlt
+        '
+        Me.btsUlt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsUlt.Image = CType(resources.GetObject("btsUlt.Image"), System.Drawing.Image)
+        Me.btsUlt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsUlt.Name = "btsUlt"
+        Me.btsUlt.Size = New System.Drawing.Size(23, 22)
+        Me.btsUlt.Text = "ToolStripButton1"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
         'frnMainProv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1155, 768)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.dtpAlta)
         Me.Controls.Add(Me.DtgProveedores)
@@ -621,6 +685,8 @@ Partial Class frnMainProv
         CType(Me.DtgProveedores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -678,4 +744,11 @@ Partial Class frnMainProv
     Friend WithEvents tsEliminar As ToolStripMenuItem
     Friend WithEvents OperacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsSalir As ToolStripMenuItem
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents btsPri As ToolStripButton
+    Friend WithEvents btsAnt As ToolStripButton
+    Friend WithEvents btsSig As ToolStripButton
+    Friend WithEvents btsUlt As ToolStripButton
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
 End Class

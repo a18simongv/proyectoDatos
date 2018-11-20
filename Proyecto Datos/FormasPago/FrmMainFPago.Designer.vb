@@ -22,6 +22,7 @@ Partial Class FrmMainFPago
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMainFPago))
         Me.txtCad = New System.Windows.Forms.TextBox()
         Me.txtPlazo = New System.Windows.Forms.TextBox()
         Me.txtDescri = New System.Windows.Forms.TextBox()
@@ -47,17 +48,25 @@ Partial Class FrmMainFPago
         Me.tsEliminar = New System.Windows.Forms.ToolStripMenuItem()
         Me.OperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsSalir = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btsPri = New System.Windows.Forms.ToolStripButton()
+        Me.btsAnt = New System.Windows.Forms.ToolStripButton()
+        Me.btsSig = New System.Windows.Forms.ToolStripButton()
+        Me.btsUlt = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.DtgFPago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtCad
         '
         Me.txtCad.BackColor = System.Drawing.SystemColors.Control
         Me.txtCad.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtCad.Location = New System.Drawing.Point(212, 166)
+        Me.txtCad.Location = New System.Drawing.Point(212, 189)
         Me.txtCad.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCad.Name = "txtCad"
         Me.txtCad.Size = New System.Drawing.Size(148, 22)
@@ -67,7 +76,7 @@ Partial Class FrmMainFPago
         '
         Me.txtPlazo.BackColor = System.Drawing.SystemColors.Control
         Me.txtPlazo.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtPlazo.Location = New System.Drawing.Point(212, 123)
+        Me.txtPlazo.Location = New System.Drawing.Point(212, 146)
         Me.txtPlazo.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPlazo.Name = "txtPlazo"
         Me.txtPlazo.Size = New System.Drawing.Size(148, 22)
@@ -77,7 +86,7 @@ Partial Class FrmMainFPago
         '
         Me.txtDescri.BackColor = System.Drawing.SystemColors.Control
         Me.txtDescri.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtDescri.Location = New System.Drawing.Point(212, 80)
+        Me.txtDescri.Location = New System.Drawing.Point(212, 103)
         Me.txtDescri.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDescri.Name = "txtDescri"
         Me.txtDescri.Size = New System.Drawing.Size(148, 22)
@@ -87,7 +96,7 @@ Partial Class FrmMainFPago
         '
         Me.txtCodPago.BackColor = System.Drawing.SystemColors.Control
         Me.txtCodPago.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.txtCodPago.Location = New System.Drawing.Point(212, 37)
+        Me.txtCodPago.Location = New System.Drawing.Point(212, 60)
         Me.txtCodPago.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCodPago.Name = "txtCodPago"
         Me.txtCodPago.Size = New System.Drawing.Size(148, 22)
@@ -95,7 +104,7 @@ Partial Class FrmMainFPago
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(46, 160)
+        Me.Label4.Location = New System.Drawing.Point(46, 183)
         Me.Label4.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(139, 34)
@@ -104,7 +113,7 @@ Partial Class FrmMainFPago
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(46, 117)
+        Me.Label3.Location = New System.Drawing.Point(46, 140)
         Me.Label3.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(139, 34)
@@ -113,7 +122,7 @@ Partial Class FrmMainFPago
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(46, 74)
+        Me.Label2.Location = New System.Drawing.Point(46, 97)
         Me.Label2.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(139, 34)
@@ -122,7 +131,7 @@ Partial Class FrmMainFPago
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(46, 31)
+        Me.Label1.Location = New System.Drawing.Point(46, 54)
         Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(139, 34)
@@ -133,7 +142,7 @@ Partial Class FrmMainFPago
         '
         Me.DtgFPago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DtgFPago.GridColor = System.Drawing.Color.Gainsboro
-        Me.DtgFPago.Location = New System.Drawing.Point(128, 296)
+        Me.DtgFPago.Location = New System.Drawing.Point(128, 319)
         Me.DtgFPago.Name = "DtgFPago"
         Me.DtgFPago.ReadOnly = True
         Me.DtgFPago.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
@@ -148,7 +157,7 @@ Partial Class FrmMainFPago
         Me.GroupBox1.Controls.Add(Me.BtnAnterior)
         Me.GroupBox1.Controls.Add(Me.BtnPrimero)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.GroupBox1.Location = New System.Drawing.Point(49, 224)
+        Me.GroupBox1.Location = New System.Drawing.Point(49, 247)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(776, 72)
         Me.GroupBox1.TabIndex = 38
@@ -196,7 +205,7 @@ Partial Class FrmMainFPago
         Me.Panel2.Controls.Add(Me.BtnEliminar)
         Me.Panel2.Controls.Add(Me.BtnModificar)
         Me.Panel2.Controls.Add(Me.BtnNuevo)
-        Me.Panel2.Location = New System.Drawing.Point(487, 29)
+        Me.Panel2.Location = New System.Drawing.Point(487, 52)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(338, 176)
         Me.Panel2.TabIndex = 40
@@ -274,11 +283,67 @@ Partial Class FrmMainFPago
         Me.tsSalir.Size = New System.Drawing.Size(41, 20)
         Me.tsSalir.Text = "&Salir"
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.btsPri, Me.btsAnt, Me.btsSig, Me.btsUlt, Me.ToolStripSeparator2})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(900, 25)
+        Me.ToolStrip1.TabIndex = 42
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'btsPri
+        '
+        Me.btsPri.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsPri.Image = CType(resources.GetObject("btsPri.Image"), System.Drawing.Image)
+        Me.btsPri.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsPri.Name = "btsPri"
+        Me.btsPri.Size = New System.Drawing.Size(23, 22)
+        Me.btsPri.Text = "ToolStripButton4"
+        '
+        'btsAnt
+        '
+        Me.btsAnt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsAnt.Image = CType(resources.GetObject("btsAnt.Image"), System.Drawing.Image)
+        Me.btsAnt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsAnt.Name = "btsAnt"
+        Me.btsAnt.Size = New System.Drawing.Size(23, 22)
+        Me.btsAnt.Text = "ToolStripButton3"
+        '
+        'btsSig
+        '
+        Me.btsSig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsSig.Image = CType(resources.GetObject("btsSig.Image"), System.Drawing.Image)
+        Me.btsSig.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsSig.Name = "btsSig"
+        Me.btsSig.Size = New System.Drawing.Size(23, 22)
+        Me.btsSig.Text = "ToolStripButton2"
+        '
+        'btsUlt
+        '
+        Me.btsUlt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btsUlt.Image = CType(resources.GetObject("btsUlt.Image"), System.Drawing.Image)
+        Me.btsUlt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btsUlt.Name = "btsUlt"
+        Me.btsUlt.Size = New System.Drawing.Size(23, 22)
+        Me.btsUlt.Text = "ToolStripButton1"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
         'FrmMainFPago
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(900, 422)
+        Me.ClientSize = New System.Drawing.Size(900, 466)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.DtgFPago)
@@ -300,6 +365,8 @@ Partial Class FrmMainFPago
         Me.Panel2.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -330,4 +397,11 @@ Partial Class FrmMainFPago
     Friend WithEvents tsEliminar As ToolStripMenuItem
     Friend WithEvents OperacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsSalir As ToolStripMenuItem
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents btsPri As ToolStripButton
+    Friend WithEvents btsAnt As ToolStripButton
+    Friend WithEvents btsSig As ToolStripButton
+    Friend WithEvents btsUlt As ToolStripButton
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
 End Class

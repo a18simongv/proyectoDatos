@@ -53,20 +53,40 @@ Module Procedimientos_y_datos_globales
         Dim txtbox As TextBox
         txtbox = TryCast(sender, TextBox)
 
-        Dim valores As String = "0123456789" & Chr(8)
+        Dim cancel As String = "+-*/\`^{}()=¨´!·$%&/()?¿|#~~€¬"
 
-        If Not valores.Contains(e.KeyChar) Then
+        If cancel.Contains(e.KeyChar) Then
             e.Handled = True
         End If
+
+        If e.KeyChar = Chr(64) Then 'chr(64) = @
+            If txtbox.Text.Contains(Chr(64)) Then
+                e.Handled = True
+            End If
+
+        End If
+
     End Sub
     Public Sub numDecimal(sender As Object, e As KeyPressEventArgs)
         Dim txtbox As TextBox
         txtbox = TryCast(sender, TextBox)
 
-        Dim valores As String = "0123456789" & Chr(8)
+        Dim valores As String = "0123456789.,-" & Chr(8)
 
         If Not valores.Contains(e.KeyChar) Then
             e.Handled = True
+        End If
+
+        If e.KeyChar = "-" Then
+            If txtbox.Text.Contains(e.KeyChar) Then
+                e.Handled = True
+            Else
+                txtbox.Text = e.KeyChar & txtbox.Text
+            End If
+        End If
+
+        If e.KeyChar = "." Then
+            e.KeyChar = ","
         End If
     End Sub
 End Module

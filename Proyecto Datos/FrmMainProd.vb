@@ -7,12 +7,12 @@ Public Class FrmMainProd
 
     Private Sub FrmProductos_Load(sender As Object, e As EventArgs) Handles Me.Load 'Captura el evento de carga del formulario
 
-        'CnnGestion = New OleDbConnection _
-        '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         CnnGestion = New OleDbConnection _
         ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        'CnnGestion = New OleDbConnection _
+        '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         DtsMProductos = New DataSet 'Instanciamos el datasetManager que contendra la gestion de las tablas necesarias
 

@@ -8,6 +8,7 @@ Public Class FrmEdicionProv
         AddHandler TxtCodPos.KeyPress, AddressOf numEnterosPos
         AddHandler TxtTelef.KeyPress, AddressOf numEnterosPos
         AddHandler TxtFax.KeyPress, AddressOf numEnterosPos
+        AddHandler TxtEmail.KeyPress, AddressOf email
     End Sub
 
     Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click

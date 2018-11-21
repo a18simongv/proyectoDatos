@@ -68,20 +68,20 @@ Public Class FrmMainProd
         End With
     End Sub
 
-    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click, btsPri.Click
+    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click
         'El BindingContext es una propiedad del form que vincula ¿el formulario? con la posicion del dataset.
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position = 0
     End Sub
 
-    Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click, btsAnt.Click
+    Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position -= 1
     End Sub
 
-    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click, btsSig.Click
+    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position += 1
     End Sub
 
-    Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click, btsUlt.Click
+    Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position =
             Me.BindingContext(DtsMProductos.Tables("Prod")).Count - 1
     End Sub

@@ -254,7 +254,7 @@ Partial Class FrmMainTIva
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(867, 25)
-        Me.ToolStrip1.TabIndex = 40
+        Me.ToolStrip1.TabIndex = 76
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'ToolStripSeparator1

@@ -5,12 +5,12 @@ Public Class frnMainProv
     Dim dtaProve, dtaMun, dtaProvn, dtaBan, dtaSucur, dtaFmsPg As OleDbDataAdapter
 
     Private Sub frnMainProv_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CnnGestion = New OleDbConnection _
-        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         'CnnGestion = New OleDbConnection _
         '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        CnnGestion = New OleDbConnection _
+        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         dtsManProv = New DataSet 'dts utilizar para proveedores
 
@@ -78,16 +78,16 @@ Public Class frnMainProv
         End With
     End Sub
 
-    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click
+    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click, btsPri.Click
         Me.BindingContext(dtsManProv.Tables("prov")).Position = 0
     End Sub
-    Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click
+    Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click, btsAnt.Click
         Me.BindingContext(dtsManProv.Tables("prov")).Position -= 1
     End Sub
-    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click
+    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click, btsSig.Click
         Me.BindingContext(dtsManProv.Tables("prov")).Position += 1
     End Sub
-    Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click
+    Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click, btsUlt.Click
         Me.BindingContext(dtsManProv.Tables("prov")).Position = Me.BindingContext(dtsManProv.Tables("prov")).Count - 1
     End Sub
 

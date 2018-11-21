@@ -7,12 +7,12 @@ Public Class FrmMainProd
 
     Private Sub FrmProductos_Load(sender As Object, e As EventArgs) Handles Me.Load 'Captura el evento de carga del formulario
 
-        CnnGestion = New OleDbConnection _
-        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         'CnnGestion = New OleDbConnection _
         '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        CnnGestion = New OleDbConnection _
+        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        "C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
 
         DtsMProductos = New DataSet 'Instanciamos el datasetManager que contendra la gestion de las tablas necesarias
 
@@ -68,20 +68,20 @@ Public Class FrmMainProd
         End With
     End Sub
 
-    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click
+    Private Sub BtnPrimero_Click(sender As Object, e As EventArgs) Handles BtnPrimero.Click, btsPri.Click
         'El BindingContext es una propiedad del form que vincula ¿el formulario? con la posicion del dataset.
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position = 0
     End Sub
 
-    Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click
+    Private Sub BtnAnterior_Click(sender As Object, e As EventArgs) Handles BtnAnterior.Click, btsAnt.Click
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position -= 1
     End Sub
 
-    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click
+    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click, btsSig.Click
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position += 1
     End Sub
 
-    Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click
+    Private Sub BtnUltimo_Click(sender As Object, e As EventArgs) Handles BtnUltimo.Click, btsUlt.Click
         Me.BindingContext(DtsMProductos.Tables("Prod")).Position =
             Me.BindingContext(DtsMProductos.Tables("Prod")).Count - 1
     End Sub

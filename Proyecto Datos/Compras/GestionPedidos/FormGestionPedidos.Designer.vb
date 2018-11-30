@@ -23,10 +23,12 @@ Partial Class FormGestionPedidos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.chbTodos = New System.Windows.Forms.CheckBox()
+        Me.dtgProductos = New System.Windows.Forms.DataGridView()
+        Me.chkTodos = New System.Windows.Forms.CheckBox()
         Me.btnRealizar = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dtgPedidos = New System.Windows.Forms.DataGridView()
+        CType(Me.dtgProductos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgPedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -38,23 +40,26 @@ Partial Class FormGestionPedidos
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Gestion pedidos"
         '
-        'DataGridView1
+        'dtgProductos
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(47, 143)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(906, 186)
-        Me.DataGridView1.TabIndex = 1
+        Me.dtgProductos.AllowUserToAddRows = False
+        Me.dtgProductos.AllowUserToDeleteRows = False
+        Me.dtgProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtgProductos.Location = New System.Drawing.Point(47, 143)
+        Me.dtgProductos.Name = "dtgProductos"
+        Me.dtgProductos.Size = New System.Drawing.Size(959, 186)
+        Me.dtgProductos.TabIndex = 1
         '
-        'chbTodos
+        'chkTodos
         '
-        Me.chbTodos.AutoSize = True
-        Me.chbTodos.Location = New System.Drawing.Point(872, 109)
-        Me.chbTodos.Name = "chbTodos"
-        Me.chbTodos.Size = New System.Drawing.Size(56, 17)
-        Me.chbTodos.TabIndex = 2
-        Me.chbTodos.Text = "Todos"
-        Me.chbTodos.UseVisualStyleBackColor = True
+        Me.chkTodos.AutoSize = True
+        Me.chkTodos.Location = New System.Drawing.Point(872, 109)
+        Me.chkTodos.Name = "chkTodos"
+        Me.chkTodos.Size = New System.Drawing.Size(56, 17)
+        Me.chkTodos.TabIndex = 2
+        Me.chkTodos.Text = "Todos"
+        Me.chkTodos.UseVisualStyleBackColor = True
         '
         'btnRealizar
         '
@@ -65,25 +70,36 @@ Partial Class FormGestionPedidos
         Me.btnRealizar.Text = "Realizar pedidos"
         Me.btnRealizar.UseVisualStyleBackColor = True
         '
+        'dtgPedidos
+        '
+        Me.dtgPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtgPedidos.Location = New System.Drawing.Point(47, 443)
+        Me.dtgPedidos.Name = "dtgPedidos"
+        Me.dtgPedidos.Size = New System.Drawing.Size(959, 150)
+        Me.dtgPedidos.TabIndex = 4
+        '
         'FormGestionPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1070, 471)
+        Me.ClientSize = New System.Drawing.Size(1070, 639)
+        Me.Controls.Add(Me.dtgPedidos)
         Me.Controls.Add(Me.btnRealizar)
-        Me.Controls.Add(Me.chbTodos)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.chkTodos)
+        Me.Controls.Add(Me.dtgProductos)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FormGestionPedidos"
         Me.Text = "FormGestionPedidos"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgProductos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgPedidos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents chbTodos As CheckBox
+    Friend WithEvents dtgProductos As DataGridView
+    Friend WithEvents chkTodos As CheckBox
     Friend WithEvents btnRealizar As Button
+    Friend WithEvents dtgPedidos As DataGridView
 End Class

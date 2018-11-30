@@ -30,8 +30,9 @@ Partial Class FrmMain
         Me.BtnProveedores = New System.Windows.Forms.Button()
         Me.BtnProd = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.btnGesPed = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnRecPed = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -108,12 +109,22 @@ Partial Class FrmMain
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.LimeGreen
+        Me.Panel2.Controls.Add(Me.btnRecPed)
         Me.Panel2.Controls.Add(Me.btnGesPed)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Location = New System.Drawing.Point(239, 18)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(156, 226)
         Me.Panel2.TabIndex = 1
+        '
+        'btnGesPed
+        '
+        Me.btnGesPed.Location = New System.Drawing.Point(15, 43)
+        Me.btnGesPed.Name = "btnGesPed"
+        Me.btnGesPed.Size = New System.Drawing.Size(128, 27)
+        Me.btnGesPed.TabIndex = 1
+        Me.btnGesPed.Text = "Gestión de pedidos"
+        Me.btnGesPed.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -124,14 +135,14 @@ Partial Class FrmMain
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Compras"
         '
-        'btnGesPed
+        'btnRecPed
         '
-        Me.btnGesPed.Location = New System.Drawing.Point(15, 43)
-        Me.btnGesPed.Name = "btnGesPed"
-        Me.btnGesPed.Size = New System.Drawing.Size(128, 27)
-        Me.btnGesPed.TabIndex = 1
-        Me.btnGesPed.Text = "Gestión de pedidos"
-        Me.btnGesPed.UseVisualStyleBackColor = True
+        Me.btnRecPed.Location = New System.Drawing.Point(15, 78)
+        Me.btnRecPed.Name = "btnRecPed"
+        Me.btnRecPed.Size = New System.Drawing.Size(128, 27)
+        Me.btnRecPed.TabIndex = 2
+        Me.btnRecPed.Text = "Recepción de Pedidos"
+        Me.btnRecPed.UseVisualStyleBackColor = True
         '
         'FrmMain
         '
@@ -158,4 +169,5 @@ Partial Class FrmMain
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnGesPed As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents btnRecPed As Button
 End Class

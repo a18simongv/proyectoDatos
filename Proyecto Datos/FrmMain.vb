@@ -35,4 +35,14 @@ Public Class FrmMain
         Dim frm As New FrmMainFPago
         frm.ShowDialog()
     End Sub
+
+    Private Sub btnGesPed_Click(sender As Object, e As EventArgs) Handles btnGesPed.Click
+        Dim frm As New FormGestionPedidos
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub btnRecPed_Click(sender As Object, e As EventArgs) Handles btnRecPed.Click
+        Dim frm As New FrmRecepPedido
+        frm.ShowDialog()
+    End Sub
 End Class

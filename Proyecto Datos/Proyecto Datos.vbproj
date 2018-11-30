@@ -91,6 +91,12 @@
     <Compile Include="Clientes\FrmEdicionClt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Compras\RecPedidos\FrmRecepPedido.Designer.vb">
+      <DependentUpon>FrmRecepPedido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\RecPedidos\FrmRecepPedido.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormasPago\FrmEdicionFPago.Designer.vb">
       <DependentUpon>FrmEdicionFPago.vb</DependentUpon>
     </Compile>
@@ -127,10 +133,10 @@
     <Compile Include="FrmMainProd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionPedidos\FormGestionPedidos.Designer.vb">
+    <Compile Include="Compras\GestionPedidos\FormGestionPedidos.Designer.vb">
       <DependentUpon>FormGestionPedidos.vb</DependentUpon>
     </Compile>
-    <Compile Include="GestionPedidos\FormGestionPedidos.vb">
+    <Compile Include="Compras\GestionPedidos\FormGestionPedidos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IFilterForm.vb" />
@@ -191,6 +197,9 @@
     <EmbeddedResource Include="Clientes\FrmMainClt.resx">
       <DependentUpon>FrmMainClt.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\RecPedidos\FrmRecepPedido.resx">
+      <DependentUpon>FrmRecepPedido.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormasPago\FrmEdicionFPago.resx">
       <DependentUpon>FrmEdicionFPago.vb</DependentUpon>
     </EmbeddedResource>
@@ -209,7 +218,7 @@
     <EmbeddedResource Include="FrmMainProd.resx">
       <DependentUpon>FrmMainProd.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionPedidos\FormGestionPedidos.resx">
+    <EmbeddedResource Include="Compras\GestionPedidos\FormGestionPedidos.resx">
       <DependentUpon>FormGestionPedidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

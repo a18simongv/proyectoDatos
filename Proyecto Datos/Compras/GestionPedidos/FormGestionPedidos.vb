@@ -29,7 +29,7 @@ Public Class FormGestionPedidos
 
         dtgProductos.DataSource = DtsGPedidos.Tables("Prod")
 
-        Dim columnaSel As New DataGridViewCheckBoxColumn
+        Dim columnaSel As New DataGridViewCheckBoxColumn 'crea una columna de datagrid de tipo check box
         columnaSel.Name = "Seleccion"
         columnaSel.HeaderText = "Seleccionar"
         dtgProductos.Columns.Add(columnaSel)
@@ -39,28 +39,27 @@ Public Class FormGestionPedidos
 
     Private Sub BtnGenerar_Click(sender As Object, e As EventArgs) Handles btnRealizar.Click
 
-
         If DtsGPedidos.Tables("Prod").DefaultView.Count = 0 Then
             MsgBox("No se necesita hacer ningún pedido", MsgBoxStyle.Information, "Generar pedidos")
             Exit Sub
         End If
-        UltimaC = UltimoNumeroPedido()
+        UltimaC = UltimoNumeroPedido() 'numero id del nuevo pedido
         PrimeraC = UltimaC
         UltimaL = 1
         Dim NProdSeleccionados As Integer = 0
-        Dim f As New DataGridViewRow
+        Dim f As New DataGridViewRow 'crea una fila del dtg para recorrer el foreach
         Dim vProve As Integer = -1
         Dim posicion As Integer
         Me.Cursor = Cursors.WaitCursor
-        For Each f In dtgProductos.Rows
+        For Each f In dtgProductos.Rows 'foreach que recorre todo el dtg y comprueba si la linea esta seleccionada
             If f.Cells(10).Value = True Then
-                NProdSeleccionados += 1
-                posicion = f.Cells(10).RowIndex
-                If DtsGPedidos.Tables("Prod").Rows(posicion)("CodProv") <> vProve Then
-                    GuardarCabeceraPedido(posicion)
+                NProdSeleccionados += 1 'suma uno al contador de produtos seleccionados
+                posicion = f.Cells(10).RowIndex 'coge la posicion de la fila
+                If DtsGPedidos.Tables("Prod").Rows(posicion)("CodProv") <> vProve Then 'mira que no exista ya el pedido
+                    GuardarCabeceraPedido(posicion) 'inserta el pedido
                     vProve = DtsGPedidos.Tables("Prod").Rows(posicion)("CodProv")
                 End If
-                GuardarLineaPedido(posicion)
+                GuardarLineaPedido(posicion) 'inserta las lineas de pedido acorde a la cabecera
             End If
         Next
         If NProdSeleccionados = 0 Then
@@ -68,6 +67,7 @@ Public Class FormGestionPedidos
             Me.Cursor = Cursors.Default
             Exit Sub
         End If
+        'aplica los cambios en las db
         DtaPedidosC.Update(DtsGPedidos.Tables("PedC"))
         DtsGPedidos.Tables("PedC").AcceptChanges()
         DtaPedidosL.Update(DtsGPedidos.Tables("PedL"))
@@ -78,9 +78,9 @@ Public Class FormGestionPedidos
 
         Me.Cursor = Cursors.Default
         MsgBox("Se han generado los pedidos de los productos seleccionados", MsgBoxStyle.Information, "Generación")
-        DtsGPedidos.Tables("Prod").Rows.Clear()
-        DtaProductos.Fill(DtsGPedidos, "Prod")
-        MostrarPedidos()
+        DtsGPedidos.Tables("Prod").Rows.Clear() 'limpia el dts
+        DtaProductos.Fill(DtsGPedidos, "Prod") 'vuelve a cargar el dts produtos
+        MostrarPedidos() 'Vuelve a cargar los datos en los dtg
 
     End Sub
     Private Sub GuardarCabeceraPedido(Pos As Integer)
@@ -161,7 +161,7 @@ Public Class FormGestionPedidos
             .Columns(5).DefaultCellStyle.Format = "##,###,##0.00"
             .Columns(6).DefaultCellStyle.Format = "##,###,##0.00"
 
-            For i As Integer = 0 To 9
+            For i As Integer = 0 To 9 'deja solo la ultima columna como readOnly false para poder trabajar con seleccionar
                 .Columns(i).ReadOnly = True
             Next
             .Columns(0).Width = 58
@@ -195,12 +195,13 @@ Public Class FormGestionPedidos
         End If
     End Sub
     Private Sub MostrarPedidos()
+        'pilla todos los pedidos respecto a una cabecera
         DtAPedGen = New OleDbDataAdapter("Select a.Año, a.NPedido, b.Nlinea, a.Fecha, b.CodProd, c.Descri, a.CodProv, d.Nombre, b.Unidades " &
                                          "From CPedidosC As a,  CPedidosL As b, Productos As c, Proveedores as d where " &
             "a.Año = b.Año and a.NPedido = b.NPedido and b.CodProd = c.CodProd and a.CodProv = d.Codigo " &
             "and a.año = " & Year(Today) & " and a.NPedido >= " & PrimeraC & " Order By a.NPedido,b.NLinea", CnnGestion)
         DtAPedGen.Fill(DtsGPedidos, "PedGen")
-        DtgPedidos.DataSource = DtsGPedidos.Tables("PedGen")
+        dtgPedidos.DataSource = DtsGPedidos.Tables("PedGen")
         ConfigurarGridPedidos()
         'LblPedidos.Visible = True
         dtgPedidos.Visible = True

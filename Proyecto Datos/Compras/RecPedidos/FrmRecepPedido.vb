@@ -15,12 +15,12 @@ Public Class FrmRecepPedido
 
     Private Sub FrmRecepPedido_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        'CnnGestion = New OleDbConnection _
-        '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         CnnGestion = New OleDbConnection _
-        ("provider=microsoft.jet.oledb.4.0;data source=" &
-        "c:\users\a18simongv\source\repos\a18simongv\proyectodatos\gestion comercial.mdb")
+        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
+        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        'CnnGestion = New OleDbConnection _
+        '("provider=microsoft.jet.oledb.4.0;data source=" &
+        '"c:\users\a18simongv\source\repos\a18simongv\proyectodatos\gestion comercial.mdb")
 
         dtsRPedidos = New DataSet
 
@@ -107,10 +107,10 @@ Public Class FrmRecepPedido
             'Cargamos en el dataset los productos asociados a la linea de pedido
             dtaProduto = New OleDbDataAdapter("select * from Productos where CodProd in (Select CodProd from CPedidosL where Situac like 'N' and Año = " & fPedC("Año") &
                                                " and NPedido = " & fPedC("NPedido") & ")", CnnGestion)
-            If Not dtsRPedidos.Tables("Prods") Is Nothing Then
-                dtsRPedidos.Tables("Prods").Rows.Clear()
+            If Not dtsRPedidos.Tables("Prod") Is Nothing Then
+                dtsRPedidos.Tables("Prod").Rows.Clear()
             End If
-            dtaProduto.Fill(dtsRPedidos, "Prods")
+            dtaProduto.Fill(dtsRPedidos, "Prod")
             Dim cmbProds As New OleDbCommandBuilder(dtaProduto)
 
         Catch ex As IndexOutOfRangeException
@@ -227,4 +227,112 @@ Public Class FrmRecepPedido
             fila.Cells(7).Value = False
         Next
     End Sub
+
+    Private Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
+        contadorLineasPedido = 0
+        'cuando pulsamos el boton registrar pedidos marcados -> actualizamos las lineas de pedidos marcadas y los productos correspondientes
+        ActualizarLineasPedido()
+
+        'si estaban todas las lineas marcadas en el datagrid de lineas se cambia la situacion de la cabecera
+        If contadorLineasPedido = dtgLineas.Rows.Count Then
+            ActualizarPedido()
+        End If
+
+        'se actualizan los datos en la base de datos
+        dtaPedidosC.Update(dtsRPedidos.Tables("PedC"))
+        dtaPedidosL.Update(dtsRPedidos.Tables("PedL"))
+        dtaProduto.Update(dtsRPedidos.Tables("Prod"))
+
+        'se aceptan los cambios en el dataset
+        dtsRPedidos.Tables("PedC").AcceptChanges()
+        dtsRPedidos.Tables("PedL").AcceptChanges()
+        dtsRPedidos.Tables("Prod").AcceptChanges()
+
+        'se limpia el dataset
+        dtsRPedidos.Tables("PedC").Rows.Clear()
+        dtsRPedidos.Tables("PedL").Rows.Clear()
+        dtsRPedidos.Tables("Prod").Rows.Clear()
+
+        'se vuelve a hcer el fill de las cabeceras para que no aparezcan los recibidos
+        dtaPedidosC.Fill(dtsRPedidos, "PedC")
+
+    End Sub
+
+    Private Sub ActualizarLineasPedido()
+        'hacemos un primer recorrido del grid de lineas para comprobar que hay lineas seleccionadas y tiene el precio introducido
+        precios = True
+        seleccionados = False
+
+        For i As Integer = 0 To dtsRPedidos.Tables("PedL").Rows.Count - 1
+            If dtgLineas.Rows(i).Cells(7).Value = True Then
+                seleccionados = True
+                filaLinea = dtsRPedidos.Tables("PedL").Rows(i)
+                If filaLinea("Precio") = 0 Then
+                    precios = False
+                End If
+            End If
+        Next
+
+        'si no han sido introducidos los precios en las lineas seleccionadas
+        If Not precios Then
+            MsgBox("Debe introducir los precios de los productos seleccionados", MsgBoxStyle.Exclamation, "Atención")
+            Exit Sub
+        End If
+
+        'si no hay ninguna linea de pedidos seleccionada
+        If Not seleccionados Then
+            MsgBox("No ha seleccionado ningún producto del pedido", MsgBoxStyle.Exclamation, "Atención")
+            Exit Sub
+        End If
+
+        Dim posicion As Integer = 0
+        Dim codigo As Integer
+        For i As Integer = 0 To dtsRPedidos.Tables("PedL").Rows.Count - 1
+
+            If dtgLineas.Rows(i).Cells(7).Value = True Then
+                'Actualiza la linea de pedido
+                filaLinea = dtsRPedidos.Tables("PedL").Rows(i)
+                filaLinea.BeginEdit()
+                codigo = filaLinea("CodProd")
+                filaLinea("Situac") = "R"
+                filaLinea.EndEdit()
+                contadorLineasPedido += 1
+                'actualiza el producto correspondiente hay que buscar el código en la tabla "Prod" del dataset
+                dtsRPedidos.Tables("Prod").DefaultView.Sort = "CodProd"
+                posicion = dtsRPedidos.Tables("Prod").DefaultView.Find(codigo)
+                FilaProducto = dtsRPedidos.Tables("Prod").Rows(posicion)
+                'y se actualiza el campo pendiente(false), el pcm y las exist
+                FilaProducto.BeginEdit()
+                FilaProducto("Pendiente") = False
+
+                'variables intermedias para pcm
+                Dim vPcm, vPrecio As Single
+                Dim vExist, vUnid As Integer
+                vPcm = FilaProducto("PCM")
+                vPrecio = filaLinea("Precio")
+                vExist = FilaProducto("Exist")
+                vUnid = filaLinea("Unidades")
+                'MUY IMPORTANTE -> hay que actualizar antes el PCM que las existencias que si no cambia la formula
+                FilaProducto("PCM") = ((vPcm + vExist) + (vUnid + vPrecio)) / (vExist + vUnid)
+                FilaProducto("Exist") += filaLinea("Unidades")
+                FilaProducto.EndEdit()
+
+            End If
+
+        Next
+    End Sub
+
+    Private Sub ActualizarPedido()
+        fPedC.BeginEdit()
+        fPedC("Situacion") = "R"
+        fPedC.EndEdit()
+    End Sub
+
+    'comprobamos que en el TextBox de precio solo se introduzcan numeros
+    Private Sub dtgLineas_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dtgLineas.EditingControlShowing
+        'referencia a la celda
+        Dim validar As TextBox = CType(e.Control, TextBox)
+        AddHandler validar.KeyPress, AddressOf numDecimal
+    End Sub
+
 End Class

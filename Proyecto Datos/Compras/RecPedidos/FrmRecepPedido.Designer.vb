@@ -27,6 +27,13 @@ Partial Class FrmRecepPedido
         Me.btnRegistrar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblTel = New System.Windows.Forms.Label()
+        Me.lblPob = New System.Windows.Forms.Label()
+        Me.lblCodPos = New System.Windows.Forms.Label()
+        Me.lblDirec = New System.Windows.Forms.Label()
+        Me.lblNombre = New System.Windows.Forms.Label()
+        Me.LblNif = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -41,13 +48,12 @@ Partial Class FrmRecepPedido
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblEmail = New System.Windows.Forms.Label()
-        Me.lblTel = New System.Windows.Forms.Label()
-        Me.lblPob = New System.Windows.Forms.Label()
-        Me.lblCodPos = New System.Windows.Forms.Label()
-        Me.lblDirec = New System.Windows.Forms.Label()
-        Me.lblNombre = New System.Windows.Forms.Label()
-        Me.LblNif = New System.Windows.Forms.Label()
+        Me.lblPCM = New System.Windows.Forms.Label()
+        Me.lblStkRep = New System.Windows.Forms.Label()
+        Me.lblStkMin = New System.Windows.Forms.Label()
+        Me.lblExist = New System.Windows.Forms.Label()
+        Me.lblDescri = New System.Windows.Forms.Label()
+        Me.lblCodProd = New System.Windows.Forms.Label()
         CType(Me.dtgPedidosC, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgLineas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -56,6 +62,8 @@ Partial Class FrmRecepPedido
         '
         'dtgPedidosC
         '
+        Me.dtgPedidosC.AllowUserToAddRows = False
+        Me.dtgPedidosC.AllowUserToDeleteRows = False
         Me.dtgPedidosC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgPedidosC.Location = New System.Drawing.Point(97, 148)
         Me.dtgPedidosC.Name = "dtgPedidosC"
@@ -64,10 +72,12 @@ Partial Class FrmRecepPedido
         '
         'dtgLineas
         '
+        Me.dtgLineas.AllowUserToAddRows = False
+        Me.dtgLineas.AllowUserToDeleteRows = False
         Me.dtgLineas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgLineas.Location = New System.Drawing.Point(97, 411)
         Me.dtgLineas.Name = "dtgLineas"
-        Me.dtgLineas.Size = New System.Drawing.Size(790, 156)
+        Me.dtgLineas.Size = New System.Drawing.Size(821, 156)
         Me.dtgLineas.TabIndex = 1
         '
         'btnRegistrar
@@ -106,12 +116,61 @@ Partial Class FrmRecepPedido
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.label)
-        Me.GroupBox1.Location = New System.Drawing.Point(850, 148)
+        Me.GroupBox1.Location = New System.Drawing.Point(924, 148)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(304, 220)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Proveedor"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.Location = New System.Drawing.Point(122, 190)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(100, 17)
+        Me.lblEmail.TabIndex = 19
+        '
+        'lblTel
+        '
+        Me.lblTel.Location = New System.Drawing.Point(122, 161)
+        Me.lblTel.Name = "lblTel"
+        Me.lblTel.Size = New System.Drawing.Size(100, 17)
+        Me.lblTel.TabIndex = 18
+        '
+        'lblPob
+        '
+        Me.lblPob.Location = New System.Drawing.Point(122, 132)
+        Me.lblPob.Name = "lblPob"
+        Me.lblPob.Size = New System.Drawing.Size(100, 17)
+        Me.lblPob.TabIndex = 17
+        '
+        'lblCodPos
+        '
+        Me.lblCodPos.Location = New System.Drawing.Point(122, 103)
+        Me.lblCodPos.Name = "lblCodPos"
+        Me.lblCodPos.Size = New System.Drawing.Size(100, 17)
+        Me.lblCodPos.TabIndex = 16
+        '
+        'lblDirec
+        '
+        Me.lblDirec.Location = New System.Drawing.Point(122, 74)
+        Me.lblDirec.Name = "lblDirec"
+        Me.lblDirec.Size = New System.Drawing.Size(100, 17)
+        Me.lblDirec.TabIndex = 15
+        '
+        'lblNombre
+        '
+        Me.lblNombre.Location = New System.Drawing.Point(122, 45)
+        Me.lblNombre.Name = "lblNombre"
+        Me.lblNombre.Size = New System.Drawing.Size(100, 17)
+        Me.lblNombre.TabIndex = 14
+        '
+        'LblNif
+        '
+        Me.LblNif.Location = New System.Drawing.Point(122, 16)
+        Me.LblNif.Name = "LblNif"
+        Me.LblNif.Size = New System.Drawing.Size(100, 17)
+        Me.LblNif.TabIndex = 13
         '
         'Label13
         '
@@ -171,13 +230,19 @@ Partial Class FrmRecepPedido
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lblPCM)
+        Me.GroupBox2.Controls.Add(Me.lblStkRep)
+        Me.GroupBox2.Controls.Add(Me.lblStkMin)
+        Me.GroupBox2.Controls.Add(Me.lblExist)
+        Me.GroupBox2.Controls.Add(Me.lblDescri)
+        Me.GroupBox2.Controls.Add(Me.lblCodProd)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Location = New System.Drawing.Point(896, 411)
+        Me.GroupBox2.Location = New System.Drawing.Point(924, 411)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(318, 226)
         Me.GroupBox2.TabIndex = 5
@@ -186,106 +251,99 @@ Partial Class FrmRecepPedido
         '
         'Label7
         '
-        Me.Label7.Location = New System.Drawing.Point(16, 183)
+        Me.Label7.Location = New System.Drawing.Point(16, 181)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(100, 22)
+        Me.Label7.Size = New System.Drawing.Size(87, 22)
         Me.Label7.TabIndex = 5
-        Me.Label7.Text = "Label7"
+        Me.Label7.Text = "PCM:"
         '
         'Label6
         '
         Me.Label6.Location = New System.Drawing.Point(16, 151)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(100, 22)
+        Me.Label6.Size = New System.Drawing.Size(87, 22)
         Me.Label6.TabIndex = 4
-        Me.Label6.Text = "Label6"
+        Me.Label6.Text = "Stock Rep.:"
         '
         'Label5
         '
         Me.Label5.Location = New System.Drawing.Point(16, 121)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(100, 22)
+        Me.Label5.Size = New System.Drawing.Size(87, 22)
         Me.Label5.TabIndex = 3
-        Me.Label5.Text = "Label5"
+        Me.Label5.Text = "Stock Min.:"
         '
         'Label4
         '
         Me.Label4.Location = New System.Drawing.Point(16, 91)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(100, 22)
+        Me.Label4.Size = New System.Drawing.Size(87, 22)
         Me.Label4.TabIndex = 2
-        Me.Label4.Text = "Label4"
+        Me.Label4.Text = "Existencias:"
         '
         'Label3
         '
         Me.Label3.Location = New System.Drawing.Point(16, 61)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 22)
+        Me.Label3.Size = New System.Drawing.Size(87, 22)
         Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Label3"
+        Me.Label3.Text = "Descición:"
         '
         'Label2
         '
         Me.Label2.Location = New System.Drawing.Point(16, 31)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(100, 22)
+        Me.Label2.Size = New System.Drawing.Size(87, 22)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Label2"
+        Me.Label2.Text = "Cod. Producto:"
         '
-        'lblEmail
+        'lblPCM
         '
-        Me.lblEmail.Location = New System.Drawing.Point(122, 190)
-        Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(100, 17)
-        Me.lblEmail.TabIndex = 19
+        Me.lblPCM.Location = New System.Drawing.Point(122, 183)
+        Me.lblPCM.Name = "lblPCM"
+        Me.lblPCM.Size = New System.Drawing.Size(100, 22)
+        Me.lblPCM.TabIndex = 11
         '
-        'lblTel
+        'lblStkRep
         '
-        Me.lblTel.Location = New System.Drawing.Point(122, 161)
-        Me.lblTel.Name = "lblTel"
-        Me.lblTel.Size = New System.Drawing.Size(100, 17)
-        Me.lblTel.TabIndex = 18
+        Me.lblStkRep.Location = New System.Drawing.Point(122, 151)
+        Me.lblStkRep.Name = "lblStkRep"
+        Me.lblStkRep.Size = New System.Drawing.Size(100, 22)
+        Me.lblStkRep.TabIndex = 10
         '
-        'lblPob
+        'lblStkMin
         '
-        Me.lblPob.Location = New System.Drawing.Point(122, 132)
-        Me.lblPob.Name = "lblPob"
-        Me.lblPob.Size = New System.Drawing.Size(100, 17)
-        Me.lblPob.TabIndex = 17
+        Me.lblStkMin.Location = New System.Drawing.Point(122, 121)
+        Me.lblStkMin.Name = "lblStkMin"
+        Me.lblStkMin.Size = New System.Drawing.Size(100, 22)
+        Me.lblStkMin.TabIndex = 9
         '
-        'lblCodPos
+        'lblExist
         '
-        Me.lblCodPos.Location = New System.Drawing.Point(122, 103)
-        Me.lblCodPos.Name = "lblCodPos"
-        Me.lblCodPos.Size = New System.Drawing.Size(100, 17)
-        Me.lblCodPos.TabIndex = 16
+        Me.lblExist.Location = New System.Drawing.Point(122, 91)
+        Me.lblExist.Name = "lblExist"
+        Me.lblExist.Size = New System.Drawing.Size(100, 22)
+        Me.lblExist.TabIndex = 8
         '
-        'lblDirec
+        'lblDescri
         '
-        Me.lblDirec.Location = New System.Drawing.Point(122, 74)
-        Me.lblDirec.Name = "lblDirec"
-        Me.lblDirec.Size = New System.Drawing.Size(100, 17)
-        Me.lblDirec.TabIndex = 15
+        Me.lblDescri.Location = New System.Drawing.Point(122, 61)
+        Me.lblDescri.Name = "lblDescri"
+        Me.lblDescri.Size = New System.Drawing.Size(100, 22)
+        Me.lblDescri.TabIndex = 7
         '
-        'lblNombre
+        'lblCodProd
         '
-        Me.lblNombre.Location = New System.Drawing.Point(122, 45)
-        Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(100, 17)
-        Me.lblNombre.TabIndex = 14
-        '
-        'LblNif
-        '
-        Me.LblNif.Location = New System.Drawing.Point(122, 16)
-        Me.LblNif.Name = "LblNif"
-        Me.LblNif.Size = New System.Drawing.Size(100, 17)
-        Me.LblNif.TabIndex = 13
+        Me.lblCodProd.Location = New System.Drawing.Point(122, 31)
+        Me.lblCodProd.Name = "lblCodProd"
+        Me.lblCodProd.Size = New System.Drawing.Size(100, 22)
+        Me.lblCodProd.TabIndex = 6
         '
         'FrmRecepPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1222, 632)
+        Me.ClientSize = New System.Drawing.Size(1259, 650)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
@@ -328,4 +386,10 @@ Partial Class FrmRecepPedido
     Friend WithEvents lblDirec As Label
     Friend WithEvents lblNombre As Label
     Friend WithEvents LblNif As Label
+    Friend WithEvents lblPCM As Label
+    Friend WithEvents lblStkRep As Label
+    Friend WithEvents lblStkMin As Label
+    Friend WithEvents lblExist As Label
+    Friend WithEvents lblDescri As Label
+    Friend WithEvents lblCodProd As Label
 End Class

@@ -15,12 +15,12 @@ Public Class FrmRecepPedido
 
     Private Sub FrmRecepPedido_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        CnnGestion = New OleDbConnection _
-        ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        "C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
         'CnnGestion = New OleDbConnection _
         '("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &
-        '"C:\Users\a18simongv\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb")
+        '"C:\Users\simon\source\repos\a18simongv\proyectoDatos\Gestion comercial.mdb") 'Inicializamos la conexión estática del módulo
+        CnnGestion = New OleDbConnection _
+        ("provider=microsoft.jet.oledb.4.0;data source=" &
+        "c:\users\a18simongv\source\repos\a18simongv\proyectodatos\gestion comercial.mdb")
 
         dtsRPedidos = New DataSet
 
@@ -53,6 +53,12 @@ Public Class FrmRecepPedido
             .Columns(4).HeaderText = "Situación"
 
             .Columns(2).DefaultCellStyle.Format = "dd/MM/yyyy"
+
+            .Columns(0).ReadOnly = True
+            .Columns(1).ReadOnly = True
+            .Columns(2).ReadOnly = True
+            .Columns(3).ReadOnly = True
+            .Columns(4).ReadOnly = True
         End With
 
     End Sub
@@ -158,4 +164,67 @@ Public Class FrmRecepPedido
         End If
     End Sub
 
+    Private Sub dtgLineas_SelectionChanged(sender As Object, e As EventArgs) Handles dtgLineas.SelectionChanged
+        If dtgLineas.CurrentRow Is Nothing Then
+            Exit Sub
+        End If
+        'Buscamos el producto cuyo código coincide con el seleccionado
+        Dim posicionProd As Integer
+        If Not dtsRPedidos.Tables("Prod") Is Nothing Then
+            dtsRPedidos.Tables("Prod").DefaultView.Sort = "CodProd"
+            posicionProd = dtsRPedidos.Tables("Prod").DefaultView.Find(dtgLineas.CurrentRow.Cells(3).Value)
+
+            Me.BindingContext(dtsRPedidos.Tables("Prod")).Position = posicionProd
+            'mostramos el produto seleccionado
+            MuestraProducto()
+        End If
+    End Sub
+
+    Private Sub MuestraProducto()
+
+        If lblCodProd.DataBindings.Count = 0 Then
+            lblCodProd.DataBindings.Add("Text", dtsRPedidos.Tables("Prod"), "CodProd")
+            lblDescri.DataBindings.Add("Text", dtsRPedidos.Tables("Prod"), "Descri")
+            lblExist.DataBindings.Add("Text", dtsRPedidos.Tables("Prod"), "Exist")
+            lblStkMin.DataBindings.Add("Text", dtsRPedidos.Tables("Prod"), "StMin")
+            lblStkRep.DataBindings.Add("Text", dtsRPedidos.Tables("Prod"), "StRep")
+            lblPCM.DataBindings.Add("Text", dtsRPedidos.Tables("Prod"), "PCM")
+        End If
+
+    End Sub
+
+    '  Cuando cambia el estado de la casilla de verificación en el pedido seleccionado, si se activa, se marcan todas las lineas
+    'del pedido y si se desactiva se desmarcan. Esto requiere 2 eventos (CurrentCellDirtyStateChange y CellValueChange) -> el primero
+    'se necesita para que en el segundo tenga el valor real (modificado)
+    Private Sub dtgPedidosC_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles dtgPedidosC.CurrentCellDirtyStateChanged
+        If dtgPedidosC.IsCurrentCellDirty Then
+            dtgPedidosC.CommitEdit(DataGridViewDataErrorContexts.Commit)
+        End If
+    End Sub
+
+    Private Sub dtgPedidosC_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dtgPedidosC.CellValueChanged
+
+        If Not dtgPedidosC.CurrentRow Is Nothing Then
+            If dtgPedidosC.CurrentRow.Cells(5).Value = False Then
+                DesmarcarLineas()
+            Else
+                MarcarLineas()
+            End If
+        End If
+    End Sub
+
+    Private Sub MarcarLineas()
+        'se recorre el dtg y se desmarcan todas las casillas
+        Dim fila As DataGridViewRow
+        For Each fila In dtgLineas.Rows
+            fila.Cells(7).Value = True
+        Next
+    End Sub
+    Private Sub DesmarcarLineas()
+        'se recorre el dtg y se desmarcan todas las casillas
+        Dim fila As DataGridViewRow
+        For Each fila In dtgLineas.Rows
+            fila.Cells(7).Value = False
+        Next
+    End Sub
 End Class
